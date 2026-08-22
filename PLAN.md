@@ -34,11 +34,11 @@ Sredstva v `public/`:
 
 Preden nastane ena sama sekcija. Če to preskočiš, boš barve popravljal na 30 mestih.
 
-- [ ] Barvne spremenljivke iz `CLAUDE.md` v `app/globals.css`
-- [ ] Razširitev v `tailwind.config.ts` (`azeno-navy`, `azeno-blue`, …)
-- [ ] Izbira in nastavitev pisave prek `next/font`
-- [ ] Osnovne komponente: gumb (primarni/sekundarni), ovoj sekcije, naslov
-- [ ] Navigacija z logotipom in noga
+- [x] Barvne spremenljivke iz `CLAUDE.md` v `app/globals.css`
+- [x] Razširitev v `tailwind.config.ts` (`azeno-navy`, `azeno-blue`, …)
+- [x] Izbira in nastavitev pisave prek `next/font`
+- [x] Osnovne komponente: gumb (primarni/sekundarni), ovoj sekcije, naslov
+- [x] Navigacija z logotipom in noga
 
 **Prompt:**
 
@@ -47,7 +47,7 @@ Preden nastane ena sama sekcija. Če to preskočiš, boš barve popravljal na 30
 > komponente — Button, Section, Heading — in Navbar z logotipom ter Footer.
 > Brez vsebine sekcij, samo ogrodje. Pokaži mi prazno stran s tem ogrodjem.
 
-- [ ] Commit: `feat: oblikovni temelj in ogrodje strani`
+- [x] Commit: `feat: oblikovni temelj in ogrodje strani`
 
 ---
 
@@ -55,11 +55,11 @@ Preden nastane ena sama sekcija. Če to preskočiš, boš barve popravljal na 30
 
 Zdaj, ne kasneje. Naknadno vlečenje besedila iz komponent v slovarje je dvojno delo.
 
-- [ ] `app/[lang]/` struktura
-- [ ] `dictionaries/sl.json` in `en.json`
-- [ ] `lib/dictionary.ts`
-- [ ] Preklopnik jezika v navigaciji
-- [ ] Preusmeritev `/` → `/sl`
+- [x] `app/[lang]/` struktura
+- [x] `dictionaries/sl.json` in `en.json`
+- [x] `lib/dictionary.ts`
+- [x] Preklopnik jezika v navigaciji
+- [x] Preusmeritev `/` → `/sl`
 
 **Prompt:**
 
@@ -67,7 +67,7 @@ Zdaj, ne kasneje. Naknadno vlečenje besedila iz komponent v slovarje je dvojno 
 > Preklopnik naj ohrani trenutni položaj na strani. Preveri, da v komponentah
 > ni nobenega trdo zapisanega besedila.
 
-- [ ] Commit: `feat: dvojezicnost sl/en`
+- [x] Commit: `feat: dvojezicnost sl/en`
 
 ---
 
