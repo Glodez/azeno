@@ -2,13 +2,15 @@
   "nav": {
     "ctaButton": "Book a consultation"
   },
-  "home": {
-    "title": "AZENO",
-    "description": "The page framework is ready — section content follows in the next phase.",
-    "primaryButton": "Primary button",
-    "secondaryButton": "Secondary button",
-    "altBackgroundTitle": "Alternating background",
-    "altBackgroundDescription": "This section shows the --azeno-surface background alternating with white."
+  "hero": {
+    "title": "How many hours a week do you spend on work a computer could do?",
+    "subtitle": "Process automation, document processing and AI chatbots for small and mid-sized businesses.",
+    "ctaButton": "Book a free consultation"
+  },
+  "cta": {
+    "slogan": "Your step into the future.",
+    "title": "Book a free 20-minute consultation.",
+    "ctaButton": "Book a consultation"
   },
   "footer": {
     "logoAlt": "AZENO — Your step into the future.",

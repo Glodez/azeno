@@ -2,13 +2,15 @@
   "nav": {
     "ctaButton": "Rezervirajte posvet"
   },
-  "home": {
-    "title": "AZENO",
-    "description": "Ogrodje strani je pripravljeno — vsebina sekcij sledi v naslednji fazi.",
-    "primaryButton": "Primarni gumb",
-    "secondaryButton": "Sekundarni gumb",
-    "altBackgroundTitle": "Izmenično ozadje",
-    "altBackgroundDescription": "Ta sekcija prikazuje ozadje --azeno-surface, ki se izmenjuje z belim."
+  "hero": {
+    "title": "Koliko ur na teden porabite za delo, ki bi ga lahko opravil računalnik?",
+    "subtitle": "Avtomatizacija procesov, obdelava dokumentov in AI chatboti za mala in srednje velika podjetja.",
+    "ctaButton": "Rezervirajte brezplačen posvet"
+  },
+  "cta": {
+    "slogan": "Vaš korak v prihodnost.",
+    "title": "Rezervirajte brezplačen 20-minutni posvet.",
+    "ctaButton": "Rezervirajte posvet"
   },
   "footer": {
     "logoAlt": "AZENO — Vaš korak v prihodnost.",
