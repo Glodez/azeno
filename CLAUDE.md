@@ -34,8 +34,8 @@ lib/
   openai.ts                 # inicializacija klienta
   dictionary.ts             # nalaganje prevodov
 public/
-  azeno-logo.svg            # znak + napis, brez slogana (navigacija)
-  azeno-logo-slogan.svg     # znak + napis + slogan (noga)
+  azeno-logo.jpg            # znak + napis, brez slogana (navigacija)
+  azeno-logo-slogan.jpg     # znak + napis + slogan (noga)
   nejc.jpg                  # portret za sekcijo O meni
 ```
 
@@ -78,8 +78,9 @@ Pravila uporabe:
 
 - Logotip v navigaciji: znak + napis, brez slogana, višina ~32 px.
 - Logotip s sloganom: samo v nogi.
-- **Oba logotipa rabita prosojno ozadje (SVG).** Trenutne datoteke imajo belo podlago,
-  kar bo na sekciji s `--azeno-surface` vidno kot bel pravokotnik.
+- Logotipa (`azeno-logo.jpg`, `azeno-logo-slogan.jpg`) sta trenutno JPG z belo podlago.
+  Ko bo na voljo vektorska različica s prosojnim ozadjem, ju zamenjaj (idealno SVG) —
+  brez tega je na sekciji z `--azeno-surface` vidna bela podlaga kot pravokotnik.
 - Portret: obreži spodnji desni kot — tam je vodni žig urejevalnika.
   V sekciji O meni naj bo pokončen, ob besedilu, ne čez celo širino.
 
@@ -228,10 +229,20 @@ Cilj je zaupanje pri lastnikih podjetij, ne "AI startup" videz.
 
 ## Odprto (dopolniti pred objavo)
 
-- [ ] Logotipa v SVG s prosojnim ozadjem
+- [ ] Logotipa (trenutno `.jpg` z belo podlago) v vektor s prosojnim ozadjem
 - [ ] Obrezan portret (odstraniti vodni žig spodaj desno)
 - [ ] Pravni podatki v nogi (podjetje v postopku registracije)
 - [ ] Cal.com dogodek (20 min) in povezava
 - [ ] Pregled politike zasebnosti
 - [ ] Angleški prevodi vseh besedil
 - [ ] Domena
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

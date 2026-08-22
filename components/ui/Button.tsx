@@ -1,0 +1,33 @@
+import Link from "next/link";
+import type { ComponentPropsWithoutRef } from "react";
+
+type ButtonVariant = "primary" | "secondary";
+
+type ButtonAsLink = { href: string; variant?: ButtonVariant } & Omit<
+  ComponentPropsWithoutRef<"a">,
+  "href"
+>;
+
+type ButtonAsButton = { href?: undefined; variant?: ButtonVariant } & ComponentPropsWithoutRef<"button">;
+
+type ButtonProps = ButtonAsLink | ButtonAsButton;
+
+const baseStyles =
+  "inline-flex items-center justify-center rounded-md px-6 py-3 text-sm font-semibold transition-colors";
+
+const variantStyles: Record<ButtonVariant, string> = {
+  primary: "bg-azeno-blue text-azeno-white hover:bg-azeno-navy",
+  secondary:
+    "border border-azeno-blue text-azeno-blue hover:bg-azeno-surface",
+};
+
+export function Button({ variant = "primary", className = "", ...props }: ButtonProps) {
+  const styles = `${baseStyles} ${variantStyles[variant]} ${className}`;
+
+  if (props.href) {
+    const { href, ...rest } = props as ButtonAsLink;
+    return <Link href={href} className={styles} {...rest} />;
+  }
+
+  return <button className={styles} {...(props as ButtonAsButton)} />;
+}

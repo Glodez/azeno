@@ -1,26 +1,18 @@
 @import "tailwindcss";
+@config "../tailwind.config.mts";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --azeno-navy: #232a7a;
+  --azeno-blue: #2563c7;
+  --azeno-cyan: #2fc6d8;
+  --azeno-ink: #1a1d2e;
+  --azeno-muted: #5c6478;
+  --azeno-line: #e2e6ef;
+  --azeno-surface: #f5f7fb;
+  --azeno-white: #ffffff;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--azeno-white);
+  color: var(--azeno-ink);
 }
