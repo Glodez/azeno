@@ -7,6 +7,27 @@
     "subtitle": "Process automation, document processing and AI chatbots for small and mid-sized businesses.",
     "ctaButton": "Book a free consultation"
   },
+  "services": {
+    "title": "Services",
+    "items": [
+      {
+        "title": "Process automation",
+        "description": "Repetitive tasks get done automatically, so you have time for work that matters."
+      },
+      {
+        "title": "AI document processing",
+        "description": "Invoices, contracts and forms are read and sorted automatically, without manual data entry."
+      },
+      {
+        "title": "AI chatbots for businesses",
+        "description": "Visitors get an answer right away, even outside office hours, and you handle fewer routine questions."
+      },
+      {
+        "title": "Website design for businesses",
+        "description": "A clear website that leads visitors to get in touch or book a call."
+      }
+    ]
+  },
   "cta": {
     "slogan": "Your step into the future.",
     "title": "Book a free 20-minute consultation.",

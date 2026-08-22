@@ -7,6 +7,27 @@
     "subtitle": "Avtomatizacija procesov, obdelava dokumentov in AI chatboti za mala in srednje velika podjetja.",
     "ctaButton": "Rezervirajte brezplačen posvet"
   },
+  "services": {
+    "title": "Storitve",
+    "items": [
+      {
+        "title": "Avtomatizacija procesov",
+        "description": "Ponavljajoča opravila se izvedejo sama, vi pa imate čas za pomembnejše delo."
+      },
+      {
+        "title": "Obdelava dokumentov z AI",
+        "description": "Računi, pogodbe in obrazci se preberejo in uredijo sami, brez ročnega prepisovanja."
+      },
+      {
+        "title": "AI chatboti za podjetja",
+        "description": "Obiskovalci dobijo odgovor takoj, tudi izven delovnega časa, vi pa manj rutinskih vprašanj."
+      },
+      {
+        "title": "Grajenje spletnih strani za podjetja",
+        "description": "Jasna spletna stran, ki obiskovalca pripelje do povpraševanja ali rezervacije."
+      }
+    ]
+  },
   "cta": {
     "slogan": "Vaš korak v prihodnost.",
     "title": "Rezervirajte brezplačen 20-minutni posvet.",
