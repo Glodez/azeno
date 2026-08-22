@@ -9,7 +9,7 @@ export async function Hero() {
   return (
     <Section background="white">
       <Heading as={1}>{hero.title}</Heading>
-      <p className="mt-4 max-w-prose text-lg text-azeno-muted">{hero.subtitle}</p>
+      <p className="mt-4 max-w-2xl text-lg text-azeno-muted">{hero.subtitle}</p>
       <div className="mt-8">
         <Button href="#cta" variant="primary">
           {hero.ctaButton}

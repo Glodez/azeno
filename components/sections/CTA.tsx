@@ -8,13 +8,9 @@ export async function CTA() {
 
   return (
     <Section id="cta" background="white">
-      <div className="flex flex-col items-center gap-8 py-12 text-center sm:py-20">
-        <p className="text-4xl font-bold tracking-tight text-azeno-navy sm:text-5xl">
-          {cta.slogan}
-        </p>
-        <Heading as={2} className="text-center">
-          {cta.title}
-        </Heading>
+      <Heading as={2}>{cta.slogan}</Heading>
+      <p className="mt-4 text-lg text-azeno-muted">{cta.title}</p>
+      <div className="mt-8">
         <Button href="#cta" variant="primary">
           {cta.ctaButton}
         </Button>

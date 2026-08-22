@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { lang } from "next/root-params";
-import { Button } from "@/components/ui/Button";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { getDictionary } from "@/lib/dictionary";
 
@@ -24,9 +23,9 @@ export async function Navbar() {
         </Link>
         <div className="flex items-center gap-4">
           <LanguageSwitcher />
-          <Button href="#cta" variant="primary">
+          <Link href="#cta" className="text-sm font-medium text-azeno-blue hover:underline">
             {nav.ctaButton}
-          </Button>
+          </Link>
         </div>
       </div>
     </header>
