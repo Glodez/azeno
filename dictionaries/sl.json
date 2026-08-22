@@ -1,4 +1,15 @@
 {
+  "nav": {
+    "ctaButton": "Rezervirajte posvet"
+  },
+  "home": {
+    "title": "AZENO",
+    "description": "Ogrodje strani je pripravljeno — vsebina sekcij sledi v naslednji fazi.",
+    "primaryButton": "Primarni gumb",
+    "secondaryButton": "Sekundarni gumb",
+    "altBackgroundTitle": "Izmenično ozadje",
+    "altBackgroundDescription": "Ta sekcija prikazuje ozadje --azeno-surface, ki se izmenjuje z belim."
+  },
   "footer": {
     "logoAlt": "AZENO — Vaš korak v prihodnost.",
     "copyright": "© {year} AZENO",

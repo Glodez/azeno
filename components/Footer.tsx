@@ -1,9 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import dictionary from "@/dictionaries/sl.json";
+import { lang } from "next/root-params";
+import { getDictionary } from "@/lib/dictionary";
 
-export function Footer() {
-  const { footer } = dictionary;
+export async function Footer() {
+  const locale = await lang();
+  const { footer } = await getDictionary();
   const copyright = footer.copyright.replace("{year}", String(new Date().getFullYear()));
 
   return (
@@ -24,7 +26,7 @@ export function Footer() {
               {footer.contactEmail}
             </a>
           </p>
-          <Link href="/zasebnost" className="text-azeno-blue hover:underline">
+          <Link href={`/${locale}/zasebnost`} className="text-azeno-blue hover:underline">
             {footer.privacyLink}
           </Link>
         </div>
