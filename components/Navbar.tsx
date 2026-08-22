@@ -8,11 +8,11 @@ export function Navbar() {
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center">
           <Image
-            src="/azeno-logo.jpg"
+            src="/azeno-logo.png"
             alt="AZENO"
-            width={140}
-            height={32}
-            className="h-8 w-auto"
+            width={601}
+            height={432}
+            className="h-9 w-auto"
             priority
           />
         </Link>

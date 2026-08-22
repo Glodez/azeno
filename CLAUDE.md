@@ -34,8 +34,8 @@ lib/
   openai.ts                 # inicializacija klienta
   dictionary.ts             # nalaganje prevodov
 public/
-  azeno-logo.jpg            # znak + napis, brez slogana (navigacija)
-  azeno-logo-slogan.jpg     # znak + napis + slogan (noga)
+  azeno-logo.png            # znak + napis, brez slogana (navigacija), prosojno ozadje
+  azeno-logo-slogan.png     # znak + napis + slogan (noga), prosojno ozadje
   nejc.jpg                  # portret za sekcijo O meni
 ```
 
@@ -78,9 +78,8 @@ Pravila uporabe:
 
 - Logotip v navigaciji: znak + napis, brez slogana, višina ~32 px.
 - Logotip s sloganom: samo v nogi.
-- Logotipa (`azeno-logo.jpg`, `azeno-logo-slogan.jpg`) sta trenutno JPG z belo podlago.
-  Ko bo na voljo vektorska različica s prosojnim ozadjem, ju zamenjaj (idealno SVG) —
-  brez tega je na sekciji z `--azeno-surface` vidna bela podlaga kot pravokotnik.
+- Logotipa (`azeno-logo.png`, `azeno-logo-slogan.png`) imata prosojno ozadje (PNG).
+  Vektorska (SVG) različica je še odprta točka — glej spodaj.
 - Portret: obreži spodnji desni kot — tam je vodni žig urejevalnika.
   V sekciji O meni naj bo pokončen, ob besedilu, ne čez celo širino.
 
@@ -105,7 +104,8 @@ One-pager v tem vrstnem redu:
 4. **Kako poteka sodelovanje** — 3–4 koraki od prvega klica do delujoče rešitve.
    Namen: odstraniti strah pred neznanim, ker večina naročnikov AI še ni uporabljala.
 5. **CTA** — ponovno rezervacija posveta, z vgrajenim Cal.com.
-6. **Noga** — logotip s sloganom, pravni podatki, povezava na politiko zasebnosti.
+6. **Noga** — logotip s sloganom, kontaktni e-naslov, pravni podatki, povezava na
+   politiko zasebnosti.
 
 ### Česa na strani NI
 
@@ -120,6 +120,17 @@ One-pager v tem vrstnem redu:
 - Brez izrazov "revolucionarno", "cutting-edge", "transformacija poslovanja".
 - Govori o prihranjenem času in odpravljenih napakah, ne o modelih in API-jih.
 - Brez obljub konkretnih rezultatov ("prihranili boste 20 ur") — govorimo o možnostih.
+
+---
+
+## Kontakt
+
+- Kontaktni e-naslov: **azenoai.si@gmail.com**. Prikazan v nogi kot klikljiva
+  `mailto:` povezava.
+- To je edini kontaktni podatek na strani, dokler podjetje ni registrirano
+  (glej "Odprto" — pravni podatki v nogi).
+- Besedilo ob e-naslovu (npr. "Pišite nam:") gre v `dictionaries/sl.json` in
+  `dictionaries/en.json`, ne trdo v komponento.
 
 ---
 
@@ -229,7 +240,7 @@ Cilj je zaupanje pri lastnikih podjetij, ne "AI startup" videz.
 
 ## Odprto (dopolniti pred objavo)
 
-- [ ] Logotipa (trenutno `.jpg` z belo podlago) v vektor s prosojnim ozadjem
+- [ ] Logotipa v vektor (SVG) — trenutno PNG s prosojnim ozadjem, kar zadošča
 - [ ] Obrezan portret (odstraniti vodni žig spodaj desno)
 - [ ] Pravni podatki v nogi (podjetje v postopku registracije)
 - [ ] Cal.com dogodek (20 min) in povezava
