@@ -28,6 +28,33 @@
       }
     ]
   },
+  "about": {
+    "title": "About me",
+    "paragraph1": "My name is Nejc. I started AZENO after noticing something simple: the tools that could save Slovenian businesses hours every week already exist and are within reach — nobody just sets them up. Larger agencies chase larger clients, which leaves small and mid-sized companies without anyone willing to sit down with their actual process.",
+    "paragraph2": "So every project starts with your work, not with technology. First I want to understand what someone at your company does by hand, how often, and where it breaks down — only then does it make sense to talk about a solution. If something isn't worth automating, I'll say so. I'm young, and for this work that's an advantage: I carry no habits about how things have always been done, and I do have the time to go deep on your particular case.",
+    "imageAlt": "Nejc, founder of AZENO"
+  },
+  "process": {
+    "title": "How we work together",
+    "steps": [
+      {
+        "title": "Free consultation (20 minutes)",
+        "description": "We talk about where your company loses the most time. No preparation, no obligation."
+      },
+      {
+        "title": "Proposed solution",
+        "description": "I show you what can be automated, how much work it takes and what you gain. Only then do we talk about price."
+      },
+      {
+        "title": "Build",
+        "description": "I build the solution and test it on your real cases, not on demo data."
+      },
+      {
+        "title": "Handover and support",
+        "description": "Your team gets instructions, and I stay reachable if something breaks."
+      }
+    ]
+  },
   "cta": {
     "slogan": "Your step into the future.",
     "title": "Book a free consultation.",

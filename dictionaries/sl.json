@@ -28,6 +28,33 @@
       }
     ]
   },
+  "about": {
+    "title": "O meni",
+    "paragraph1": "Sem Nejc. AZENO sem ustanovil, ker sem opazil nekaj preprostega: orodja, ki bi slovenskim podjetjem prihranila ure dela na teden, obstajajo in so dosegljiva — samo nihče jih ne postavi. Večje agencije lovijo večje stranke, mala in srednje velika podjetja pa ostanejo brez nekoga, ki bi si vzel čas za njihov konkreten proces.",
+    "paragraph2": "Zato vsak projekt začnem pri vašem delu, ne pri tehnologiji. Najprej hočem razumeti, kaj kdo pri vas dela ročno, kako pogosto in kje se zatakne — šele nato ima smisel govoriti o rešitvi. Če se nekaj ne splača avtomatizirati, vam to povem. Mlad sem, in pri tem delu je to prednost: nimam navade, kako se je nekaj od nekdaj delalo, imam pa čas, da se poglobim v vaš primer.",
+    "imageAlt": "Nejc, ustanovitelj AZENO"
+  },
+  "process": {
+    "title": "Kako poteka sodelovanje",
+    "steps": [
+      {
+        "title": "Brezplačen posvet (20 minut)",
+        "description": "Pogovoriva se o tem, kje se v vašem podjetju porablja največ časa. Brez priprav in brez obveznosti."
+      },
+      {
+        "title": "Predlog rešitve",
+        "description": "Pokažem, kaj se da avtomatizirati, koliko dela je to in kaj boste pridobili. Šele takrat se pogovarjava o ceni."
+      },
+      {
+        "title": "Izdelava",
+        "description": "Rešitev sestavim in jo preizkusim na vaših resničnih primerih, ne na demo podatkih."
+      },
+      {
+        "title": "Predaja in podpora",
+        "description": "Vaša ekipa dobi navodila, jaz pa ostanem dosegljiv, če se kaj zatakne."
+      }
+    ]
+  },
   "cta": {
     "slogan": "Vaš korak v prihodnost.",
     "title": "Rezervirajte brezplačen posvet.",
