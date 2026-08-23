@@ -16,7 +16,11 @@ const backgroundStyles: Record<SectionBackground, string> = {
 
 export function Section({ id, background = "white", className = "", children }: SectionProps) {
   return (
-    <section id={id} className={backgroundStyles[background]}>
+    <section
+      id={id}
+      className={backgroundStyles[background]}
+      style={id ? { scrollMarginTop: "calc(var(--nav-height) + 1.5rem)" } : undefined}
+    >
       <div className={`mx-auto max-w-5xl px-6 py-16 sm:py-24 ${className}`}>{children}</div>
     </section>
   );

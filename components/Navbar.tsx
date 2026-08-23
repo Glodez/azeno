@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { lang } from "next/root-params";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { NavMenu } from "@/components/NavMenu";
 import { getDictionary } from "@/lib/dictionary";
 
 export async function Navbar() {
@@ -9,7 +10,7 @@ export async function Navbar() {
   const { nav } = await getDictionary();
 
   return (
-    <header className="border-b border-azeno-line bg-azeno-white">
+    <header className="sticky top-0 z-40 border-b border-azeno-line bg-azeno-white">
       <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-6 py-4">
         <Link href={`/${locale}`} className="flex items-center">
           <Image
@@ -21,11 +22,14 @@ export async function Navbar() {
             priority
           />
         </Link>
-        <div className="flex items-center gap-4">
-          <LanguageSwitcher />
-          <Link href="#cta" className="text-sm font-medium text-azeno-blue hover:underline">
-            {nav.ctaButton}
-          </Link>
+        <div className="flex items-center gap-8">
+          <NavMenu items={nav.items} menuOpenLabel={nav.menuOpenLabel} menuCloseLabel={nav.menuCloseLabel} />
+          <div className="flex items-center gap-4">
+            <LanguageSwitcher />
+            <Link href="#cta" className="text-sm font-medium text-azeno-blue hover:underline">
+              {nav.ctaButton}
+            </Link>
+          </div>
         </div>
       </div>
     </header>

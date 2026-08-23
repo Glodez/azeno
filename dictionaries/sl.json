@@ -1,6 +1,14 @@
 {
   "nav": {
-    "ctaButton": "Rezervirajte posvet"
+    "ctaButton": "Rezervirajte posvet",
+    "items": [
+      { "label": "Storitve", "href": "#storitve" },
+      { "label": "Preizkusite bota", "href": "#demo" },
+      { "label": "Kako poteka", "href": "#postopek" },
+      { "label": "O meni", "href": "#o-meni" }
+    ],
+    "menuOpenLabel": "Odpri meni",
+    "menuCloseLabel": "Zapri meni"
   },
   "hero": {
     "title": "Koliko ur na teden porabite za delo, ki bi ga lahko opravil računalnik?",

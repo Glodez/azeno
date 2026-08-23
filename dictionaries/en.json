@@ -1,6 +1,14 @@
 {
   "nav": {
-    "ctaButton": "Book a consultation"
+    "ctaButton": "Book a consultation",
+    "items": [
+      { "label": "Services", "href": "#storitve" },
+      { "label": "Try the bot", "href": "#demo" },
+      { "label": "How it works", "href": "#postopek" },
+      { "label": "About me", "href": "#o-meni" }
+    ],
+    "menuOpenLabel": "Open menu",
+    "menuCloseLabel": "Close menu"
   },
   "hero": {
     "title": "How many hours a week do you spend on work a computer could do?",

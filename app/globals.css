@@ -10,9 +10,20 @@
   --azeno-line: #e2e6ef;
   --azeno-surface: #f5f7fb;
   --azeno-white: #ffffff;
+  --nav-height: 4.375rem;
 }
 
 body {
   background: var(--azeno-white);
   color: var(--azeno-ink);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
