@@ -192,13 +192,6 @@ export function Chat({
             </button>
           </div>
 
-          <p className="border-t border-azeno-line px-4 py-2 text-xs text-azeno-muted">
-            {dict.privacyText}{" "}
-            <Link href={privacyHref} className="text-azeno-blue hover:underline">
-              {dict.privacyLinkLabel}
-            </Link>
-          </p>
-
           <form
             onSubmit={(event) => {
               event.preventDefault();
@@ -222,6 +215,13 @@ export function Chat({
               {dict.send}
             </button>
           </form>
+
+          <p className="border-t border-azeno-line px-4 py-2 text-xs text-azeno-muted">
+            {dict.privacyText}{" "}
+            <Link href={privacyHref} className="text-azeno-blue hover:underline">
+              {dict.privacyLinkLabel}
+            </Link>
+          </p>
         </div>
       )}
 

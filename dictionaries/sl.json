@@ -88,10 +88,59 @@
     "send": "Pošlji",
     "openLabel": "Odpri klepet",
     "closeLabel": "Zapri klepet",
-    "privacyText": "Pogovor se shranjuje zaradi izboljšave storitve.",
+    "privacyText": "Pogovor se pošlje upravljavcu po e-pošti. Ne vpisujte občutljivih osebnih podatkov.",
     "privacyLinkLabel": "Politika zasebnosti",
     "errorMessage": "Trenutno ne morem odgovoriti, poskusite čez trenutek ali rezervirajte termin.",
     "bookButton": "Rezervirajte brezplačen posvet"
+  },
+  "privacy": {
+    "title": "Politika zasebnosti",
+    "controller": {
+      "heading": "Upravljavec",
+      "body": "AZENO, Nejc Glodež. Podjetje je v postopku registracije; podatki bodo dopolnjeni. Kontakt: azenoai.si@gmail.com."
+    },
+    "whatWeCollect": {
+      "heading": "Kaj zbiramo",
+      "items": [
+        "Vsebina pogovora s chatbotom, vključno z vsem, kar obiskovalec sam napiše.",
+        "IP naslov, začasno, izključno za omejevanje števila zahtevkov (zaščita pred zlorabo).",
+        "Ob rezervaciji posveta: ime, e-naslov, ime podjetja, področje zanimanja, opis problema in časovni pas."
+      ]
+    },
+    "why": {
+      "heading": "Zakaj",
+      "items": [
+        "Da chatbot lahko odgovarja na vprašanja.",
+        "Da se dogovorimo za posvet in se nanj pripravimo.",
+        "Da izboljšujemo odgovore bota."
+      ]
+    },
+    "legalBasis": {
+      "heading": "Pravna podlaga",
+      "body": "Zakoniti interes za odgovarjanje na povpraševanja in izvedbo ukrepov pred sklenitvijo pogodbe na zahtevo posameznika."
+    },
+    "processors": {
+      "heading": "Komu se podatki posredujejo (obdelovalci)",
+      "items": [
+        "OpenAI — obdelava vsebine pogovora, da bot lahko odgovori (strežniki v ZDA).",
+        "Resend — pošiljanje povzetka pogovora upravljavcu po e-pošti.",
+        "Vercel — gostovanje spletne strani.",
+        "Cal.com — rezervacije terminov.",
+        "Google — koledar in e-pošta upravljavca."
+      ]
+    },
+    "retention": {
+      "heading": "Kako dolgo",
+      "body": "Povzetki pogovorov ostanejo v e-poštnem predalu upravljavca, dokler niso izbrisani. Rezervacije ostanejo v koledarju. Izbris lahko zahtevate kadarkoli."
+    },
+    "rights": {
+      "heading": "Vaše pravice",
+      "body": "Dostop, popravek, izbris, omejitev obdelave, ugovor in prenosljivost. Zahtevo pošljete na azenoai.si@gmail.com. Pritožbo lahko vložite pri Informacijskem pooblaščencu RS."
+    },
+    "cookies": {
+      "heading": "Piškotki",
+      "body": "Stran ne uporablja piškotkov za sledenje ali oglaševanje. Za delovanje chat widgeta se uporablja sessionStorage v brskalniku, ki se izbriše ob zaprtju zavihka."
+    }
   },
   "footer": {
     "logoAlt": "AZENO — Vaš korak v prihodnost.",

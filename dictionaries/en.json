@@ -88,10 +88,59 @@
     "send": "Send",
     "openLabel": "Open chat",
     "closeLabel": "Close chat",
-    "privacyText": "This conversation is stored to improve the service.",
+    "privacyText": "The conversation is sent to the controller by email. Do not enter sensitive personal data.",
     "privacyLinkLabel": "Privacy policy",
     "errorMessage": "I can't respond right now, please try again shortly or book a consultation.",
     "bookButton": "Book a free consultation"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "controller": {
+      "heading": "Controller",
+      "body": "AZENO, Nejc Glodež. The company is in the process of registration; details will be added. Contact: azenoai.si@gmail.com."
+    },
+    "whatWeCollect": {
+      "heading": "What we collect",
+      "items": [
+        "The content of your conversation with the chatbot, including anything you write yourself.",
+        "Your IP address, temporarily, solely to limit the number of requests (protection against abuse).",
+        "When booking a consultation: name, email address, company name, area of interest, description of the problem, and time zone."
+      ]
+    },
+    "why": {
+      "heading": "Why",
+      "items": [
+        "So the chatbot can answer questions.",
+        "So we can arrange the consultation and prepare for it.",
+        "So we can improve the bot's answers."
+      ]
+    },
+    "legalBasis": {
+      "heading": "Legal basis",
+      "body": "Legitimate interest in responding to inquiries, and taking steps prior to entering into a contract at the individual's request."
+    },
+    "processors": {
+      "heading": "Who receives the data (processors)",
+      "items": [
+        "OpenAI — processes the conversation content so the bot can respond (servers in the US).",
+        "Resend — sends the conversation summary to the controller by email.",
+        "Vercel — hosts the website.",
+        "Cal.com — handles booking of appointments.",
+        "Google — the controller's calendar and email."
+      ]
+    },
+    "retention": {
+      "heading": "How long",
+      "body": "Conversation summaries remain in the controller's mailbox until deleted. Bookings remain in the calendar. You can request deletion at any time."
+    },
+    "rights": {
+      "heading": "Your rights",
+      "body": "Access, correction, erasure, restriction of processing, objection, and data portability. Send your request to azenoai.si@gmail.com. You can file a complaint with the Information Commissioner of the Republic of Slovenia."
+    },
+    "cookies": {
+      "heading": "Cookies",
+      "body": "This site does not use cookies for tracking or advertising. The chat widget uses sessionStorage in your browser to function, which is cleared when you close the tab."
+    }
   },
   "footer": {
     "logoAlt": "AZENO — Your step into the future.",

@@ -31,7 +31,11 @@ export default async function RootLayout(props: LayoutProps<"/[lang]">) {
   const { chat } = await getDictionary();
 
   return (
-    <html lang={locale} className={`${fontSans.variable} h-full antialiased`}>
+    <html
+      lang={locale}
+      data-scroll-behavior="smooth"
+      className={`${fontSans.variable} h-full antialiased`}
+    >
       <body className="flex min-h-full flex-col font-sans">
         <CalEmbedInit />
         <ChatWidgetProvider>
