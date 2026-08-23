@@ -4,7 +4,9 @@ import { lang } from "next/root-params";
 import { notFound } from "next/navigation";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { Chat } from "@/components/Chat";
 import { hasLocale, locales } from "@/lib/i18n";
+import { getDictionary } from "@/lib/dictionary";
 import "../globals.css";
 
 const fontSans = Plus_Jakarta_Sans({
@@ -24,6 +26,7 @@ export const metadata: Metadata = {
 export default async function RootLayout(props: LayoutProps<"/[lang]">) {
   const locale = await lang();
   if (!hasLocale(locale)) notFound();
+  const { chat } = await getDictionary();
 
   return (
     <html lang={locale} className={`${fontSans.variable} h-full antialiased`}>
@@ -31,6 +34,7 @@ export default async function RootLayout(props: LayoutProps<"/[lang]">) {
         <Navbar />
         <main className="flex flex-1 flex-col">{props.children}</main>
         <Footer />
+        <Chat locale={locale} dict={chat} privacyHref={`/${locale}/zasebnost`} />
       </body>
     </html>
   );

@@ -60,6 +60,19 @@
     "title": "Rezervirajte brezplačen posvet.",
     "ctaButton": "Rezervirajte posvet"
   },
+  "chat": {
+    "windowTitle": "AZENO pomočnik",
+    "bubbleGreeting": "Imate vprašanje o avtomatizaciji? Vprašajte me.",
+    "bubbleClose": "Zapri vabilo",
+    "firstMessage": "Pozdravljeni! Lahko vam povem o avtomatizaciji procesov, obdelavi dokumentov, chatbotih ali spletnih straneh. Kaj vas najbolj zanima?",
+    "placeholder": "Napišite sporočilo …",
+    "send": "Pošlji",
+    "openLabel": "Odpri klepet",
+    "closeLabel": "Zapri klepet",
+    "privacyText": "Pogovor se shranjuje zaradi izboljšave storitve.",
+    "privacyLinkLabel": "Politika zasebnosti",
+    "errorMessage": "Trenutno ne morem odgovoriti, poskusite čez trenutek ali rezervirajte termin."
+  },
   "footer": {
     "logoAlt": "AZENO — Vaš korak v prihodnost.",
     "copyright": "© {year} AZENO",

@@ -60,6 +60,19 @@
     "title": "Book a free consultation.",
     "ctaButton": "Book a consultation"
   },
+  "chat": {
+    "windowTitle": "AZENO assistant",
+    "bubbleGreeting": "Have a question about automation? Ask me.",
+    "bubbleClose": "Close invitation",
+    "firstMessage": "Hello! I can tell you about process automation, document processing, chatbots or websites. What are you most interested in?",
+    "placeholder": "Type a message …",
+    "send": "Send",
+    "openLabel": "Open chat",
+    "closeLabel": "Close chat",
+    "privacyText": "This conversation is stored to improve the service.",
+    "privacyLinkLabel": "Privacy policy",
+    "errorMessage": "I can't respond right now, please try again shortly or book a consultation."
+  },
   "footer": {
     "logoAlt": "AZENO — Your step into the future.",
     "copyright": "© {year} AZENO",
