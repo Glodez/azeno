@@ -28,7 +28,7 @@
       },
       {
         "title": "AI chatboti za podjetja",
-        "description": "Obiskovalci dobijo odgovor takoj, tudi izven delovnega časa, vi pa manj rutinskih vprašanj."
+        "description": "Obiskovalci dobijo odgovor takoj, tudi izven delovnega časa, vi pa imate manj rutinskih vprašanj."
       },
       {
         "title": "Grajenje spletnih strani za podjetja",
@@ -66,6 +66,7 @@
   "cta": {
     "slogan": "Vaš korak v prihodnost.",
     "title": "Rezervirajte brezplačen posvet.",
+    "note": "Dvajset minut, brez priprav in brez obveznosti — pogledava, ali se pri vas sploh splača.",
     "ctaButton": "Rezervirajte posvet"
   },
   "demo": {
@@ -75,7 +76,8 @@
     "suggestions": [
       "Kaj se pri nas sploh da avtomatizirati?",
       "Ali se to poveže z našim Excelom?",
-      "Kako poteka sodelovanje?"
+      "Kako poteka sodelovanje?",
+      "Kaj pa obdelava računov in dokumentov?"
     ],
     "sendAriaLabel": "Pošlji sporočilo"
   },

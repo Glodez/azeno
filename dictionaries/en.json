@@ -28,7 +28,7 @@
       },
       {
         "title": "AI chatbots for businesses",
-        "description": "Visitors get an answer right away, even outside office hours, and you handle fewer routine questions."
+        "description": "Visitors get an answer right away, even outside office hours, and you have fewer routine questions."
       },
       {
         "title": "Website design for businesses",
@@ -66,6 +66,7 @@
   "cta": {
     "slogan": "Your step into the future.",
     "title": "Book a free consultation.",
+    "note": "Twenty minutes, no preparation and no obligation — we'll see whether it's worth doing at all.",
     "ctaButton": "Book a consultation"
   },
   "demo": {
@@ -75,7 +76,8 @@
     "suggestions": [
       "What could we actually automate?",
       "Can this connect to our Excel?",
-      "How does working together go?"
+      "How does working together go?",
+      "What about invoices and documents?"
     ],
     "sendAriaLabel": "Send message"
   },

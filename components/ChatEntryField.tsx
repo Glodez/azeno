@@ -53,13 +53,13 @@ export function ChatEntryField({
           </svg>
         </button>
       </div>
-      <div className="mt-3 flex flex-wrap gap-2">
+      <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
         {suggestions.map((suggestion) => (
           <button
             key={suggestion}
             type="button"
             onClick={() => submit(suggestion)}
-            className="min-h-11 rounded-full border border-azeno-line px-4 text-sm text-azeno-ink transition-colors hover:border-azeno-blue hover:text-azeno-blue"
+            className="min-h-11 rounded-full border border-azeno-line px-4 text-left text-sm text-azeno-ink transition-colors hover:border-azeno-blue hover:text-azeno-blue"
           >
             {suggestion}
           </button>

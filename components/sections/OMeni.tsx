@@ -9,7 +9,7 @@ export async function OMeni() {
   return (
     <Section id="o-meni" background="surface" wide>
       <Heading as={2}>{about.title}</Heading>
-      <div className="mt-8 flex flex-col gap-10 md:flex-row md:items-start md:gap-16">
+      <div className="mt-8 flex flex-col gap-10 md:flex-row md:items-center md:gap-16">
         <Image
           src="/nejc.jpg"
           alt={about.imageAlt}

@@ -10,9 +10,10 @@ export async function CTA() {
   const { cta } = await getDictionary();
 
   return (
-    <Section id="cta" background="white">
+    <Section id="cta" background="white" wide>
       <Heading as={2}>{cta.slogan}</Heading>
-      <p className="mt-4 text-lg text-azeno-muted">{cta.title}</p>
+      <p className="mt-4 max-w-prose text-lg text-azeno-muted">{cta.title}</p>
+      <p className="mt-2 max-w-prose text-azeno-muted">{cta.note}</p>
       <div className="mt-8">
         <CalTriggerButton label={cta.ctaButton} locale={locale} />
       </div>

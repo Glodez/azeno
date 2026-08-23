@@ -7,9 +7,9 @@ export async function Demo() {
   const { demo } = await getDictionary();
 
   return (
-    <Section id="demo" background="surface">
+    <Section id="demo" background="surface" wide>
       <Heading as={2}>{demo.title}</Heading>
-      <p className="mt-4 max-w-2xl text-azeno-muted">{demo.text}</p>
+      <p className="mt-4 max-w-prose text-azeno-muted">{demo.text}</p>
       <ChatEntryField
         placeholder={demo.placeholder}
         suggestions={demo.suggestions}
