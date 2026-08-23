@@ -24,6 +24,8 @@ type Message = { role: "user" | "assistant"; content: string };
 const INVITE_DISMISSED_KEY = "azeno-chat-invite-dismissed";
 const INVITE_DELAY_MS = 20_000;
 const MAX_MESSAGE_LENGTH = 2000;
+const SUMMARY_SENT_COUNT_KEY = "azeno-chat-summary-sent-count";
+const MIN_USER_MESSAGES_FOR_SUMMARY = 2;
 
 export function Chat({
   locale,
@@ -40,12 +42,39 @@ export function Chat({
   const [input, setInput] = useState("");
   const [isSending, setIsSending] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messagesRef = useRef<Message[]>(messages);
+
+  useEffect(() => {
+    messagesRef.current = messages;
+  }, [messages]);
 
   useEffect(() => {
     if (sessionStorage.getItem(INVITE_DISMISSED_KEY)) return;
     const timer = setTimeout(() => setShowInvite(true), INVITE_DELAY_MS);
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    function handleVisibilityChange() {
+      if (document.visibilityState !== "hidden") return;
+
+      const currentMessages = messagesRef.current;
+      const userMessageCount = currentMessages.filter((message) => message.role === "user").length;
+      if (userMessageCount < MIN_USER_MESSAGES_FOR_SUMMARY) return;
+
+      const lastSentCount = Number(sessionStorage.getItem(SUMMARY_SENT_COUNT_KEY) ?? "0");
+      if (currentMessages.length <= lastSentCount) return;
+
+      sessionStorage.setItem(SUMMARY_SENT_COUNT_KEY, String(currentMessages.length));
+
+      const payload = JSON.stringify({ lang: locale, messages: currentMessages });
+      const blob = new Blob([payload], { type: "application/json" });
+      navigator.sendBeacon("/api/chat/summary", blob);
+    }
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
+  }, [locale]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });

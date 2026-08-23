@@ -194,6 +194,10 @@ Cilj je zaupanje pri lastnikih podjetij, ne "AI startup" videz.
 - Ob napaki API-ja uporabnik dobi razumljivo sporočilo v svojem jeziku
   ("Trenutno ne morem odgovoriti, poskusite čez trenutek ali rezervirajte termin"),
   nikoli stack trace.
+- Ob zaprtju strani (obiskovalec je poslal vsaj 2 sporočili) se prepis pogovora
+  prek `/api/chat/summary` in Resend pošlje na azenoai.si@gmail.com — največ
+  enkrat na sejo. Ta route ima svoj rate limiting po IP. Napaka pri pošiljanju
+  se tiho zabeleži na strežniku in nikoli ne vpliva na uporabnika.
 
 ---
 
@@ -212,7 +216,9 @@ Cilj je zaupanje pri lastnikih podjetij, ne "AI startup" videz.
 - Pod chat oknom kratko obvestilo: pogovor se shranjuje, povezava na politiko zasebnosti.
 - Podstran `/zasebnost` z osnutkom politike: kdo upravlja podatke, kaj se zbira
   (vsebina pogovora, e-naslov ob rezervaciji), zakaj, kako dolgo, pravice uporabnika,
-  omemba obdelovalcev (OpenAI, Vercel, Cal.com).
+  omemba obdelovalcev (OpenAI, Vercel, Cal.com, Resend).
+- Politika zasebnosti mora izrecno omeniti, da se prepis pogovora ob zaprtju
+  strani pošlje po e-pošti upravljavcu (Resend).
 - Osnutek jasno označi kot osnutek — pred objavo ga pregleda pravnik.
 
 ---
