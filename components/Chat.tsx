@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n";
+import { useChatWidget } from "@/components/chat-context";
 
 type ChatDict = {
   windowTitle: string;
@@ -33,7 +34,7 @@ export function Chat({
   dict: ChatDict;
   privacyHref: string;
 }) {
-  const [isOpen, setIsOpen] = useState(false);
+  const { isOpen, open, close, registerOnOpen, registerOnSubmit } = useChatWidget();
   const [showInvite, setShowInvite] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
@@ -55,17 +56,26 @@ export function Chat({
     sessionStorage.setItem(INVITE_DISMISSED_KEY, "1");
   }
 
-  function openChat() {
-    dismissInvite();
-    setIsOpen(true);
-    setMessages((current) => (current.length === 0 ? [{ role: "assistant", content: dict.firstMessage }] : current));
+  function seedGreetingIfEmpty(current: Message[]): Message[] {
+    return current.length === 0 ? [{ role: "assistant", content: dict.firstMessage }] : current;
   }
 
-  async function sendMessage() {
-    const content = input.trim();
+  useEffect(() => {
+    registerOnOpen(() => {
+      dismissInvite();
+      setMessages(seedGreetingIfEmpty);
+    });
+    registerOnSubmit((content) => {
+      dismissInvite();
+      sendMessage(content);
+    });
+  });
+
+  async function sendMessage(overrideContent?: string) {
+    const content = (overrideContent ?? input).trim();
     if (!content || isSending) return;
 
-    const nextMessages: Message[] = [...messages, { role: "user", content }];
+    const nextMessages: Message[] = [...seedGreetingIfEmpty(messages), { role: "user", content }];
     setMessages(nextMessages);
     setInput("");
     setIsSending(true);
@@ -115,7 +125,7 @@ export function Chat({
             <p className="font-semibold text-azeno-navy">{dict.windowTitle}</p>
             <button
               type="button"
-              onClick={() => setIsOpen(false)}
+              onClick={close}
               aria-label={dict.closeLabel}
               className="text-azeno-muted hover:text-azeno-ink"
             >
@@ -176,7 +186,7 @@ export function Chat({
         <div className="flex max-w-xs items-start gap-2 rounded-lg border border-azeno-line bg-azeno-white px-4 py-3">
           <button
             type="button"
-            onClick={openChat}
+            onClick={open}
             className="text-left text-sm text-azeno-ink hover:underline"
           >
             {dict.bubbleGreeting}
@@ -194,7 +204,7 @@ export function Chat({
 
       <button
         type="button"
-        onClick={() => (isOpen ? setIsOpen(false) : openChat())}
+        onClick={() => (isOpen ? close() : open())}
         aria-label={isOpen ? dict.closeLabel : dict.openLabel}
         className="flex h-14 w-14 items-center justify-center rounded-full bg-azeno-blue text-azeno-white transition-colors hover:bg-azeno-navy"
       >

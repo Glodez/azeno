@@ -60,6 +60,17 @@
     "title": "Book a free consultation.",
     "ctaButton": "Book a consultation"
   },
+  "demo": {
+    "title": "Try it yourself",
+    "text": "The chatbot in the bottom-right corner isn't decoration. It's the same kind of solution I build for your company. Ask it anything about automating your work and see how it answers.",
+    "placeholder": "Ask anything about automating your work…",
+    "suggestions": [
+      "What could we actually automate?",
+      "Can this connect to our Excel?",
+      "How does working together go?"
+    ],
+    "sendAriaLabel": "Send message"
+  },
   "chat": {
     "windowTitle": "AZENO assistant",
     "bubbleGreeting": "Have a question about automation? Ask me.",

@@ -6,7 +6,7 @@ export async function Storitve() {
   const { services } = await getDictionary();
 
   return (
-    <Section background="surface">
+    <Section background="white">
       <Heading as={2}>{services.title}</Heading>
       <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
         {services.items.map((item) => (

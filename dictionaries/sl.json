@@ -60,6 +60,17 @@
     "title": "Rezervirajte brezplačen posvet.",
     "ctaButton": "Rezervirajte posvet"
   },
+  "demo": {
+    "title": "Preizkusite ga sami",
+    "text": "Chatbot v spodnjem desnem kotu ni okrasek. Je enak tip rešitve, kot jo postavim vašemu podjetju. Vprašajte ga karkoli o avtomatizaciji vašega dela in poglejte, kako se odzove.",
+    "placeholder": "Vprašajte karkoli o avtomatizaciji vašega dela…",
+    "suggestions": [
+      "Kaj se pri nas sploh da avtomatizirati?",
+      "Ali se to poveže z našim Excelom?",
+      "Kako poteka sodelovanje?"
+    ],
+    "sendAriaLabel": "Pošlji sporočilo"
+  },
   "chat": {
     "windowTitle": "AZENO pomočnik",
     "bubbleGreeting": "Imate vprašanje o avtomatizaciji? Vprašajte me.",
