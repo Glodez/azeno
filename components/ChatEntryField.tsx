@@ -7,10 +7,12 @@ export function ChatEntryField({
   placeholder,
   suggestions,
   sendAriaLabel,
+  className = "mt-8 w-full max-w-2xl",
 }: {
   placeholder: string;
   suggestions: string[];
   sendAriaLabel: string;
+  className?: string;
 }) {
   const { submitMessage } = useChatWidget();
   const [value, setValue] = useState("");
@@ -30,7 +32,7 @@ export function ChatEntryField({
   }
 
   return (
-    <div className="mt-8 w-full max-w-2xl">
+    <div className={className}>
       <div className="flex items-center gap-2 rounded-lg border border-azeno-line bg-azeno-white py-1.5 pr-1.5 pl-4">
         <input
           type="text"

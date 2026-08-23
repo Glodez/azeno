@@ -12,7 +12,7 @@ export async function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-azeno-line bg-azeno-white">
-      <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-6 py-4">
+      <div className="mx-auto flex max-w-wide items-center justify-between gap-4 px-6 py-4">
         <Link href={`/${locale}`} className="flex items-center">
           <Image
             src="/azeno-logo.png"

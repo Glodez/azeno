@@ -7,17 +7,17 @@ export async function OMeni() {
   const { about } = await getDictionary();
 
   return (
-    <Section id="o-meni" background="surface">
+    <Section id="o-meni" background="surface" wide>
       <Heading as={2}>{about.title}</Heading>
-      <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10">
+      <div className="mt-8 flex flex-col gap-10 md:flex-row md:items-start md:gap-16">
         <Image
           src="/nejc.jpg"
           alt={about.imageAlt}
           width={1179}
           height={1670}
-          className="w-full max-w-xs rounded-lg md:col-span-1 md:max-w-none"
+          className="w-full rounded-lg md:w-[26rem] md:shrink-0"
         />
-        <div className="space-y-4 text-azeno-muted md:col-span-2">
+        <div className="max-w-prose space-y-4 text-azeno-muted">
           <p>{about.paragraph1}</p>
           <p>{about.paragraph2}</p>
         </div>

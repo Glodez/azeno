@@ -10,7 +10,7 @@ export async function Footer() {
 
   return (
     <footer className="border-t border-azeno-line bg-azeno-surface">
-      <div className="mx-auto flex max-w-5xl flex-col items-center gap-4 px-6 py-10 text-sm text-azeno-muted sm:flex-row sm:justify-between">
+      <div className="mx-auto flex max-w-wide flex-col items-center gap-4 px-6 py-10 text-sm text-azeno-muted sm:flex-row sm:justify-between">
         <Image
           src="/azeno-logo-slogan.png"
           alt={footer.logoAlt}

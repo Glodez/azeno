@@ -6,7 +6,7 @@ export async function Storitve() {
   const { services } = await getDictionary();
 
   return (
-    <Section id="storitve" background="white">
+    <Section id="storitve" background="white" wide>
       <Heading as={2}>{services.title}</Heading>
       <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
         {services.items.map((item, index) => (
@@ -17,7 +17,7 @@ export async function Storitve() {
             }`}
           >
             <Heading as={3}>{item.title}</Heading>
-            <p className="mt-2 text-azeno-muted">{item.description}</p>
+            <p className="mt-2 max-w-prose text-azeno-muted">{item.description}</p>
           </div>
         ))}
       </div>

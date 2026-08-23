@@ -6,9 +6,9 @@ export async function Postopek() {
   const { process: processDict } = await getDictionary();
 
   return (
-    <Section id="postopek" background="white">
+    <Section id="postopek" background="white" wide>
       <Heading as={2}>{processDict.title}</Heading>
-      <div className="mt-10 max-w-2xl">
+      <div className="mt-10">
         {processDict.steps.map((step, index) => (
           <div key={step.title} className="flex gap-4">
             <div className="flex flex-col items-center">
@@ -19,7 +19,7 @@ export async function Postopek() {
                 <span className="my-1 w-0.5 flex-1 bg-azeno-cyan" aria-hidden="true" />
               )}
             </div>
-            <div className={index < processDict.steps.length - 1 ? "pb-8" : ""}>
+            <div className={`max-w-prose ${index < processDict.steps.length - 1 ? "pb-8" : ""}`}>
               <Heading as={3} className="mt-2">
                 {step.title}
               </Heading>

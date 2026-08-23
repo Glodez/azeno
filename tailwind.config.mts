@@ -17,6 +17,11 @@ const config: Config = {
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
       },
+      maxWidth: {
+        // Content widths, defined once — use these instead of ad-hoc max-w-* values.
+        prose: "65ch", // paragraphs and body text
+        wide: "80rem", // grids and layouts
+      },
     },
   },
 };
