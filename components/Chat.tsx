@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n";
 import { useChatWidget } from "@/components/chat-context";
-import { CAL_LINK, CAL_NAMESPACE } from "@/lib/config";
+import { CAL_URL, getCalTriggerProps, STREAM_ERROR_MARKER } from "@/lib/config";
 
 type ChatDict = {
   windowTitle: string;
@@ -18,6 +18,7 @@ type ChatDict = {
   privacyText: string;
   privacyLinkLabel: string;
   errorMessage: string;
+  interruptedMessage: string;
   bookButton: string;
 };
 
@@ -45,6 +46,8 @@ export function Chat({
   const [isSending, setIsSending] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const messagesRef = useRef<Message[]>(messages);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     messagesRef.current = messages;
@@ -82,6 +85,24 @@ export function Chat({
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
+  useEffect(() => {
+    if (isOpen) {
+      previousFocusRef.current = document.activeElement as HTMLElement | null;
+      panelRef.current?.focus();
+    } else {
+      previousFocusRef.current?.focus();
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") close();
+    }
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, close]);
+
   function dismissInvite() {
     setShowInvite(false);
     sessionStorage.setItem(INVITE_DISMISSED_KEY, "1");
@@ -101,6 +122,11 @@ export function Chat({
       sendMessage(content);
     });
   });
+
+  function withInterruptionNotice(partialContent: string): string {
+    const trimmed = partialContent.trim();
+    return trimmed.length > 0 ? `${trimmed}\n\n${dict.interruptedMessage}` : dict.interruptedMessage;
+  }
 
   async function sendMessage(overrideContent?: string) {
     const content = (overrideContent ?? input).trim();
@@ -136,6 +162,17 @@ export function Chat({
         const { done, value } = await reader.read();
         if (done) break;
         assistantReply += decoder.decode(value, { stream: true });
+
+        const markerIndex = assistantReply.indexOf(STREAM_ERROR_MARKER);
+        if (markerIndex !== -1) {
+          const partial = assistantReply.slice(0, markerIndex);
+          setMessages((current) => [
+            ...current.slice(0, -1),
+            { role: "assistant", content: withInterruptionNotice(partial) },
+          ]);
+          break;
+        }
+
         setMessages((current) => [
           ...current.slice(0, -1),
           { role: "assistant", content: assistantReply },
@@ -151,7 +188,14 @@ export function Chat({
   return (
     <div className="fixed right-4 bottom-4 z-50 flex flex-col items-end gap-3 sm:right-6 sm:bottom-6">
       {isOpen && (
-        <div className="flex h-[28rem] w-[calc(100vw-2rem)] max-w-sm flex-col rounded-lg border border-azeno-line bg-azeno-white">
+        <div
+          ref={panelRef}
+          role="dialog"
+          aria-modal="true"
+          aria-label={dict.windowTitle}
+          tabIndex={-1}
+          className="flex h-[28rem] w-[calc(100vw-2rem)] max-w-sm flex-col rounded-lg border border-azeno-line bg-azeno-white outline-none"
+        >
           <div className="flex items-center justify-between border-b border-azeno-line px-4 py-3">
             <p className="font-semibold text-azeno-navy">{dict.windowTitle}</p>
             <button
@@ -164,7 +208,12 @@ export function Chat({
             </button>
           </div>
 
-          <div className="flex-1 space-y-3 overflow-y-auto px-4 py-3">
+          <div
+            role="log"
+            aria-live="polite"
+            aria-relevant="additions text"
+            className="flex-1 space-y-3 overflow-y-auto px-4 py-3"
+          >
             {messages.map((message, index) => (
               <div
                 key={index}
@@ -181,15 +230,15 @@ export function Chat({
           </div>
 
           <div className="border-t border-azeno-line p-3">
-            <button
-              type="button"
-              data-cal-link={CAL_LINK}
-              data-cal-namespace={CAL_NAMESPACE}
-              data-cal-config={JSON.stringify({ layout: "month_view", lang: locale })}
+            <a
+              href={CAL_URL}
+              target="_blank"
+              rel="noopener"
+              {...getCalTriggerProps(locale)}
               className="flex min-h-11 w-full items-center justify-center rounded-md bg-azeno-blue px-4 text-sm font-semibold text-azeno-white transition-colors hover:bg-azeno-navy"
             >
               {dict.bookButton}
-            </button>
+            </a>
           </div>
 
           <form
@@ -205,6 +254,7 @@ export function Chat({
               onChange={(event) => setInput(event.target.value)}
               maxLength={MAX_MESSAGE_LENGTH}
               placeholder={dict.placeholder}
+              aria-label={dict.placeholder}
               className="min-h-11 flex-1 rounded-md border border-azeno-line px-3 text-sm text-azeno-ink outline-none focus:border-azeno-blue"
             />
             <button

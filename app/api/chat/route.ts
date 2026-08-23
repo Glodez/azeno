@@ -2,10 +2,11 @@ import type { NextRequest } from "next/server";
 import { openai } from "@/lib/openai";
 import { getSystemPrompt } from "@/lib/system-prompt";
 import { hasLocale, defaultLocale, type Locale } from "@/lib/i18n";
+import { isRateLimited, getClientIp } from "@/lib/rate-limit";
+import { STREAM_ERROR_MARKER } from "@/lib/config";
 
 const MAX_MESSAGE_LENGTH = 2000;
 const MAX_HISTORY_MESSAGES = 10;
-const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX_REQUESTS = 15;
 
 const ERROR_MESSAGES: Record<Locale, string> = {
@@ -14,24 +15,6 @@ const ERROR_MESSAGES: Record<Locale, string> = {
 };
 
 type ChatMessage = { role: "user" | "assistant"; content: string };
-
-const requestTimestamps = new Map<string, number[]>();
-
-function isRateLimited(ip: string): boolean {
-  const now = Date.now();
-  const recent = (requestTimestamps.get(ip) ?? []).filter(
-    (timestamp) => now - timestamp < RATE_LIMIT_WINDOW_MS
-  );
-  recent.push(now);
-  requestTimestamps.set(ip, recent);
-  return recent.length > RATE_LIMIT_MAX_REQUESTS;
-}
-
-function getClientIp(request: NextRequest): string {
-  const forwardedFor = request.headers.get("x-forwarded-for");
-  if (forwardedFor) return forwardedFor.split(",")[0].trim();
-  return request.headers.get("x-real-ip") ?? "unknown";
-}
 
 function isValidMessage(message: unknown): message is ChatMessage {
   if (typeof message !== "object" || message === null) return false;
@@ -54,7 +37,7 @@ export async function POST(request: NextRequest) {
 
   const locale = typeof body.lang === "string" && hasLocale(body.lang) ? body.lang : defaultLocale;
 
-  if (isRateLimited(getClientIp(request))) {
+  if (isRateLimited(getClientIp(request), RATE_LIMIT_MAX_REQUESTS)) {
     return Response.json({ error: ERROR_MESSAGES[locale] }, { status: 429 });
   }
 
@@ -81,7 +64,10 @@ export async function POST(request: NextRequest) {
             if (delta) controller.enqueue(encoder.encode(delta));
           }
         } catch {
-          // Stream already started to the client — a JSON error can no longer be sent.
+          // Stream already started to the client — a JSON error can no longer be
+          // sent, so append a marker the client can detect and show as an
+          // interrupted-answer notice instead.
+          controller.enqueue(encoder.encode(STREAM_ERROR_MARKER));
         } finally {
           controller.close();
         }

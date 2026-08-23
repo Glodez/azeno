@@ -1,5 +1,6 @@
 {
   "nav": {
+    "logoAlt": "AZENO",
     "ctaButton": "Book a consultation",
     "items": [
       { "label": "Services", "href": "#storitve" },
@@ -93,6 +94,7 @@
     "privacyText": "The conversation is sent to the controller by email. Do not enter sensitive personal data.",
     "privacyLinkLabel": "Privacy policy",
     "errorMessage": "I can't respond right now, please try again shortly or book a consultation.",
+    "interruptedMessage": "The answer was interrupted. Please try again or book a consultation.",
     "bookButton": "Book a free consultation"
   },
   "privacy": {
@@ -119,13 +121,13 @@
     },
     "legalBasis": {
       "heading": "Legal basis",
-      "body": "Legitimate interest in responding to inquiries, and taking steps prior to entering into a contract at the individual's request."
+      "body": "Legitimate interest in responding to inquiries, and taking steps prior to entering into a contract at the individual's request. Processing of the IP address is based on a legitimate interest in preventing abuse and keeping the site running securely."
     },
     "processors": {
       "heading": "Who receives the data (processors)",
       "items": [
-        "OpenAI — processes the conversation content so the bot can respond (servers in the US).",
-        "Resend — sends the conversation summary to the controller by email.",
+        "OpenAI — processes the conversation content so the bot can respond (servers in the US). They may retain the content in line with their own privacy policy: openai.com/policies/privacy-policy.",
+        "Resend — sends the full conversation transcript to the controller by email.",
         "Vercel — hosts the website.",
         "Cal.com — handles booking of appointments.",
         "Google — the controller's calendar and email."
@@ -133,7 +135,7 @@
     },
     "retention": {
       "heading": "How long",
-      "body": "Conversation summaries remain in the controller's mailbox until deleted. Bookings remain in the calendar. You can request deletion at any time."
+      "body": "Conversation transcripts remain in the controller's mailbox until deleted. Bookings remain in the calendar. You can request deletion at any time."
     },
     "rights": {
       "heading": "Your rights",

@@ -1,5 +1,6 @@
 {
   "nav": {
+    "logoAlt": "AZENO",
     "ctaButton": "Rezervirajte posvet",
     "items": [
       { "label": "Storitve", "href": "#storitve" },
@@ -93,6 +94,7 @@
     "privacyText": "Pogovor se pošlje upravljavcu po e-pošti. Ne vpisujte občutljivih osebnih podatkov.",
     "privacyLinkLabel": "Politika zasebnosti",
     "errorMessage": "Trenutno ne morem odgovoriti, poskusite čez trenutek ali rezervirajte termin.",
+    "interruptedMessage": "Odgovor je bil prekinjen. Poskusite znova ali rezervirajte termin.",
     "bookButton": "Rezervirajte brezplačen posvet"
   },
   "privacy": {
@@ -119,13 +121,13 @@
     },
     "legalBasis": {
       "heading": "Pravna podlaga",
-      "body": "Zakoniti interes za odgovarjanje na povpraševanja in izvedbo ukrepov pred sklenitvijo pogodbe na zahtevo posameznika."
+      "body": "Zakoniti interes za odgovarjanje na povpraševanja in izvedbo ukrepov pred sklenitvijo pogodbe na zahtevo posameznika. Za obdelavo IP naslova je pravna podlaga zakoniti interes za preprečevanje zlorabe in zagotavljanje varnega delovanja strani."
     },
     "processors": {
       "heading": "Komu se podatki posredujejo (obdelovalci)",
       "items": [
-        "OpenAI — obdelava vsebine pogovora, da bot lahko odgovori (strežniki v ZDA).",
-        "Resend — pošiljanje povzetka pogovora upravljavcu po e-pošti.",
+        "OpenAI — obdelava vsebine pogovora, da bot lahko odgovori (strežniki v ZDA). Vsebino lahko hranijo v skladu s svojo politiko zasebnosti: openai.com/policies/privacy-policy.",
+        "Resend — pošiljanje celotnega prepisa pogovora upravljavcu po e-pošti.",
         "Vercel — gostovanje spletne strani.",
         "Cal.com — rezervacije terminov.",
         "Google — koledar in e-pošta upravljavca."
@@ -133,7 +135,7 @@
     },
     "retention": {
       "heading": "Kako dolgo",
-      "body": "Povzetki pogovorov ostanejo v e-poštnem predalu upravljavca, dokler niso izbrisani. Rezervacije ostanejo v koledarju. Izbris lahko zahtevate kadarkoli."
+      "body": "Prepisi pogovorov ostanejo v e-poštnem predalu upravljavca, dokler niso izbrisani. Rezervacije ostanejo v koledarju. Izbris lahko zahtevate kadarkoli."
     },
     "rights": {
       "heading": "Vaše pravice",

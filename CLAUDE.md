@@ -203,7 +203,8 @@ Cilj je zaupanje pri lastnikih podjetij, ne "AI startup" videz.
 
 ## Varnost
 
-- `OPENAI_API_KEY` se bere **izključno** v `app/api/chat/route.ts` prek `process.env`.
+- `OPENAI_API_KEY` se bere **izključno** v `lib/openai.ts` prek `process.env`, ki ga
+  uporablja izključno strežniška koda (`app/api/chat/route.ts`).
 - Nikoli ne izpostavi ključa v client komponentah in nikoli ga ne predpiši
   s `NEXT_PUBLIC_` prefiksom.
 - Vsak nov API klic gre skozi route handler na strežniku, nikoli direktno iz brskalnika.
@@ -219,7 +220,6 @@ Cilj je zaupanje pri lastnikih podjetij, ne "AI startup" videz.
   omemba obdelovalcev (OpenAI, Vercel, Cal.com, Resend).
 - Politika zasebnosti mora izrecno omeniti, da se prepis pogovora ob zaprtju
   strani pošlje po e-pošti upravljavcu (Resend).
-- Osnutek jasno označi kot osnutek — pred objavo ga pregleda pravnik.
 
 ---
 

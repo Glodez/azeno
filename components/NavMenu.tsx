@@ -38,6 +38,15 @@ export function NavMenu({
     return () => observer.disconnect();
   }, [items]);
 
+  useEffect(() => {
+    if (!isOpen) return;
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") setIsOpen(false);
+    }
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen]);
+
   return (
     <>
       <nav className="hidden items-center gap-6 md:flex">

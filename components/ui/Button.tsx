@@ -30,6 +30,11 @@ export function Button({ variant = "primary", className = "", ...props }: Button
 
   if (props.href) {
     const { href, ...rest } = props as ButtonAsLink;
+    // External URLs (e.g. Cal.com) use a plain <a> — if the booking script
+    // never loads, the link still works as a normal navigation.
+    if (/^https?:\/\//.test(href)) {
+      return <a href={href} className={styles} {...rest} />;
+    }
     return <Link href={href} className={styles} {...rest} />;
   }
 

@@ -40,6 +40,7 @@ export function ChatEntryField({
           onChange={(event) => setValue(event.target.value)}
           onKeyDown={handleKeyDown}
           placeholder={placeholder}
+          aria-label={placeholder}
           className="min-h-11 min-w-0 flex-1 bg-transparent text-sm text-azeno-ink outline-none placeholder:text-azeno-muted"
         />
         <button

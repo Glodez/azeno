@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/Button";
-import { CAL_LINK, CAL_NAMESPACE } from "@/lib/config";
+import { CAL_URL, getCalTriggerProps } from "@/lib/config";
 import type { Locale } from "@/lib/i18n";
 
 export function CalTriggerButton({
@@ -13,12 +13,12 @@ export function CalTriggerButton({
 }) {
   return (
     <Button
-      type="button"
+      href={CAL_URL}
+      target="_blank"
+      rel="noopener"
       variant="primary"
       className={className}
-      data-cal-link={CAL_LINK}
-      data-cal-namespace={CAL_NAMESPACE}
-      data-cal-config={JSON.stringify({ layout: "month_view", lang: locale })}
+      {...getCalTriggerProps(locale)}
     >
       {label}
     </Button>

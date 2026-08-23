@@ -4,10 +4,11 @@ import { lang } from "next/root-params";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { NavMenu } from "@/components/NavMenu";
 import { getDictionary } from "@/lib/dictionary";
-import { CAL_LINK, CAL_NAMESPACE } from "@/lib/config";
+import { CAL_URL, getCalTriggerProps } from "@/lib/config";
+import type { Locale } from "@/lib/i18n";
 
 export async function Navbar() {
-  const locale = await lang();
+  const locale = (await lang()) as Locale;
   const { nav } = await getDictionary();
 
   return (
@@ -16,7 +17,7 @@ export async function Navbar() {
         <Link href={`/${locale}`} className="flex items-center">
           <Image
             src="/azeno-logo.png"
-            alt="AZENO"
+            alt={nav.logoAlt}
             width={601}
             height={432}
             className="h-9 w-auto"
@@ -27,15 +28,15 @@ export async function Navbar() {
           <NavMenu items={nav.items} menuOpenLabel={nav.menuOpenLabel} menuCloseLabel={nav.menuCloseLabel} />
           <div className="flex items-center gap-4">
             <LanguageSwitcher />
-            <button
-              type="button"
-              data-cal-link={CAL_LINK}
-              data-cal-namespace={CAL_NAMESPACE}
-              data-cal-config={JSON.stringify({ layout: "month_view", lang: locale })}
+            <a
+              href={CAL_URL}
+              target="_blank"
+              rel="noopener"
+              {...getCalTriggerProps(locale)}
               className="text-sm font-medium text-azeno-blue hover:underline"
             >
               {nav.ctaButton}
-            </button>
+            </a>
           </div>
         </div>
       </div>

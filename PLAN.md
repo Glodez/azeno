@@ -75,11 +75,11 @@ Zdaj, ne kasneje. Naknadno vlečenje besedila iz komponent v slovarje je dvojno 
 
 Po ena sekcija naenkrat, ne vse hkrati.
 
-- [ ] Hero — naslov o problemu, slogan, gumb na rezervacijo
-- [ ] Storitve — štiri kartice
-- [ ] O meni — portret in prvoosebna zgodba
-- [ ] Kako poteka sodelovanje — 3–4 koraki
-- [ ] CTA
+- [x] Hero — naslov o problemu, slogan, gumb na rezervacijo
+- [x] Storitve — štiri kartice
+- [x] O meni — portret in prvoosebna zgodba
+- [x] Kako poteka sodelovanje — 3–4 koraki
+- [x] CTA
 - [ ] Preverjeno na telefonu (dejanski telefon, ne samo DevTools)
 
 **Prompt za vsako:**
@@ -87,7 +87,7 @@ Po ena sekcija naenkrat, ne vse hkrati.
 > Naredi sekcijo <ime> po CLAUDE.md. Besedila v oba slovarja.
 > Uporabi samo obstoječe komponente iz faze 1 — ne uvajaj novih barv ali odmikov.
 
-- [ ] Commit po vsaki sekciji
+- [x] Commit po vsaki sekciji
 
 **Odprto — to moraš napisati ti, ne model:**
 
@@ -98,20 +98,20 @@ Po ena sekcija naenkrat, ne vse hkrati.
 
 ## Faza 4 — Chatbot
 
-- [ ] `lib/openai.ts` — inicializacija klienta
-- [ ] `lib/system-prompt.ts` — vsebina bota, oba jezika
-- [ ] `app/api/chat/route.ts` — streaming, omejitev 2000 znakov, zadnjih ~10 sporočil,
+- [x] `lib/openai.ts` — inicializacija klienta
+- [x] `lib/system-prompt.ts` — vsebina bota, oba jezika
+- [x] `app/api/chat/route.ts` — streaming, omejitev 2000 znakov, zadnjih ~10 sporočil,
       obravnava napak
-- [ ] `components/Chat.tsx` — widget spodaj desno
-- [ ] Samodejno vabilo po ~20 s, `sessionStorage` da se ne ponavlja
-- [ ] Obvestilo o zasebnosti pod vnosnim poljem
+- [x] `components/Chat.tsx` — widget spodaj desno
+- [x] Samodejno vabilo po ~20 s, `sessionStorage` da se ne ponavlja
+- [x] Obvestilo o zasebnosti pod vnosnim poljem
 
 **Prompt:**
 
 > Naredi chatbota po CLAUDE.md. Najprej route handler s streamingom in vsemi
 > omejitvami, potem widget. Ključ samo prek process.env v route handlerju.
 
-- [ ] Commit: `feat: chatbot`
+- [x] Commit: `feat: chatbot`
 
 **Testiraj, preden greš naprej:**
 
@@ -128,12 +128,12 @@ Po ena sekcija naenkrat, ne vse hkrati.
 - [ ] Cal.com račun, povezan z Google Koledarjem
 - [ ] Dogodek "Brezplačen posvet", 20 min, časovni pas Europe/Ljubljana
 - [ ] Nastavi razpoložljive ure in razmik med termini
-- [ ] `npm install @calcom/embed-react`
-- [ ] Vgradnja v CTA sekcijo
+- [x] `npm install @calcom/embed-react`
+- [x] Vgradnja v CTA sekcijo
 - [ ] Bot ob interesu odpre koledar
 - [ ] Rezerviraj testni termin in preveri, da pride v koledar in na mail
 
-- [ ] Commit: `feat: rezervacija termina prek Cal.com`
+- [x] Commit: `feat: rezervacija termina prek Cal.com`
 
 > Bot zaenkrat samo **pelje** na koledar, ne rezervira sam. Funkcijsko klicanje
 > (bot preveri proste termine in rezervira znotraj pogovora) je faza 9 — šele ko
@@ -143,13 +143,13 @@ Po ena sekcija naenkrat, ne vse hkrati.
 
 ## Faza 6 — Zasebnost in pravno
 
-- [ ] Podstran `/zasebnost` v obeh jezikih
-- [ ] Osnutek politike: kaj se zbira, zakaj, kako dolgo, pravice, obdelovalci
+- [x] Podstran `/zasebnost` v obeh jezikih
+- [x] Osnutek politike: kaj se zbira, zakaj, kako dolgo, pravice, obdelovalci
       (OpenAI, Vercel, Cal.com)
-- [ ] Povezava v nogi in pod chatom
+- [x] Povezava v nogi in pod chatom
 - [ ] Prostor v nogi za pravne podatke podjetja
 
-- [ ] Commit: `feat: politika zasebnosti`
+- [x] Commit: `feat: politika zasebnosti`
 
 > Podjetje je v postopku registracije. Ko dobiš podatke, jih vpiši v nogo —
 > po ZEPT so obvezni, ko prek spleta ponujaš storitve.
