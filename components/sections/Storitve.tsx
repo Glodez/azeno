@@ -8,9 +8,14 @@ export async function Storitve() {
   return (
     <Section id="storitve" background="white">
       <Heading as={2}>{services.title}</Heading>
-      <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
-        {services.items.map((item) => (
-          <div key={item.title} className="rounded-lg border border-azeno-line bg-azeno-white p-6">
+      <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
+        {services.items.map((item, index) => (
+          <div
+            key={item.title}
+            className={`rounded-lg border border-azeno-line bg-azeno-white p-6 ${
+              index === 0 ? "sm:col-span-3" : ""
+            }`}
+          >
             <Heading as={3}>{item.title}</Heading>
             <p className="mt-2 text-azeno-muted">{item.description}</p>
           </div>

@@ -22,5 +22,10 @@ const tagByLevel: Record<HeadingLevel, "h1" | "h2" | "h3"> = {
 
 export function Heading({ as = 2, className = "", children }: HeadingProps) {
   const Tag = tagByLevel[as];
-  return <Tag className={`${sizesByLevel[as]} text-azeno-navy ${className}`}>{children}</Tag>;
+  return (
+    <>
+      <Tag className={`${sizesByLevel[as]} text-azeno-navy ${className}`}>{children}</Tag>
+      {as === 2 && <div className="mt-3 h-0.5 w-12 bg-azeno-cyan" aria-hidden="true" />}
+    </>
+  );
 }
