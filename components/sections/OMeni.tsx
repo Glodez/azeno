@@ -7,7 +7,7 @@ export async function OMeni() {
   const { about } = await getDictionary();
 
   return (
-    <Section background="white">
+    <Section background="surface">
       <Heading as={2}>{about.title}</Heading>
       <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10">
         <Image
