@@ -7,8 +7,9 @@ import { Footer } from "@/components/Footer";
 import { Chat } from "@/components/Chat";
 import { ChatWidgetProvider } from "@/components/chat-context";
 import { CalEmbedInit } from "@/components/CalEmbedInit";
-import { hasLocale, locales } from "@/lib/i18n";
-import { getDictionary } from "@/lib/dictionary";
+import { hasLocale, locales, defaultLocale, type Locale } from "@/lib/i18n";
+import { getDictionary, getDictionaryForLocale } from "@/lib/dictionary";
+import { SITE_URL } from "@/lib/config";
 import "../globals.css";
 
 const fontSans = Plus_Jakarta_Sans({
@@ -20,10 +21,40 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ lang: locale }));
 }
 
-export const metadata: Metadata = {
-  title: "AZENO — Vaš korak v prihodnost.",
-  description: "AI avtomatizacija za mala in srednje velika podjetja.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang: localeParam } = await params;
+  const locale: Locale = hasLocale(localeParam) ? localeParam : defaultLocale;
+  const { metadata } = getDictionaryForLocale(locale);
+
+  const languages = Object.fromEntries(locales.map((l) => [l, `${SITE_URL}/${l}`]));
+
+  return {
+    metadataBase: new URL(SITE_URL),
+    title: metadata.title,
+    description: metadata.description,
+    alternates: {
+      canonical: `${SITE_URL}/${locale}`,
+      languages,
+    },
+    openGraph: {
+      title: metadata.title,
+      description: metadata.description,
+      url: `${SITE_URL}/${locale}`,
+      siteName: "AZENO",
+      locale: locale === "sl" ? "sl_SI" : "en_US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: metadata.title,
+      description: metadata.description,
+    },
+  };
+}
 
 export default async function RootLayout(props: LayoutProps<"/[lang]">) {
   const locale = await lang();
