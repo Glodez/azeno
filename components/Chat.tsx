@@ -127,7 +127,7 @@ export function Chat({
               type="button"
               onClick={close}
               aria-label={dict.closeLabel}
-              className="text-azeno-muted hover:text-azeno-ink"
+              className="-mr-2 flex h-11 w-11 items-center justify-center text-azeno-muted transition-colors hover:text-azeno-ink"
             >
               ✕
             </button>
@@ -169,12 +169,12 @@ export function Chat({
               onChange={(event) => setInput(event.target.value)}
               maxLength={MAX_MESSAGE_LENGTH}
               placeholder={dict.placeholder}
-              className="flex-1 rounded-md border border-azeno-line px-3 py-2 text-sm text-azeno-ink outline-none focus:border-azeno-blue"
+              className="min-h-11 flex-1 rounded-md border border-azeno-line px-3 text-sm text-azeno-ink outline-none focus:border-azeno-blue"
             />
             <button
               type="submit"
               disabled={isSending || input.trim().length === 0}
-              className="rounded-md bg-azeno-blue px-4 py-2 text-sm font-semibold text-azeno-white transition-colors hover:bg-azeno-navy disabled:opacity-50"
+              className="inline-flex min-h-11 items-center justify-center rounded-md bg-azeno-blue px-4 text-sm font-semibold text-azeno-white transition-colors hover:bg-azeno-navy disabled:opacity-50"
             >
               {dict.send}
             </button>
@@ -183,11 +183,11 @@ export function Chat({
       )}
 
       {!isOpen && showInvite && (
-        <div className="flex max-w-xs items-start gap-2 rounded-lg border border-azeno-line bg-azeno-white px-4 py-3">
+        <div className="flex max-w-xs items-start gap-1 rounded-lg border border-azeno-line bg-azeno-white py-1 pr-1 pl-4">
           <button
             type="button"
             onClick={open}
-            className="text-left text-sm text-azeno-ink hover:underline"
+            className="min-h-11 py-3 text-left text-sm text-azeno-ink hover:underline"
           >
             {dict.bubbleGreeting}
           </button>
@@ -195,7 +195,7 @@ export function Chat({
             type="button"
             onClick={dismissInvite}
             aria-label={dict.bubbleClose}
-            className="text-azeno-muted hover:text-azeno-ink"
+            className="flex h-11 w-11 shrink-0 items-center justify-center text-azeno-muted transition-colors hover:text-azeno-ink"
           >
             ✕
           </button>

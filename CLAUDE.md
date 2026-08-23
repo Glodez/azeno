@@ -154,6 +154,7 @@ Cilj je zaupanje pri lastnikih podjetij, ne "AI startup" videz.
 - Kartice: tanka obroba `--azeno-line`, blag radij, nič več.
 - Mobilni pogled je prvi — večina obiskovalcev pride s telefona.
 - Slike prek `next/image`.
+- Vsak klikljiv element mora imeti dotikalno površino vsaj 44×44 px.
 
 ---
 

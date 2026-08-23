@@ -59,7 +59,7 @@ export function NavMenu({
         onClick={() => setIsOpen((current) => !current)}
         aria-label={isOpen ? menuCloseLabel : menuOpenLabel}
         aria-expanded={isOpen}
-        className="flex h-9 w-9 items-center justify-center text-azeno-ink md:hidden"
+        className="-mr-2 flex h-11 w-11 items-center justify-center text-azeno-ink md:hidden"
       >
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-6 w-6">
           {isOpen ? (
