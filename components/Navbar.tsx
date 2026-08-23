@@ -4,6 +4,7 @@ import { lang } from "next/root-params";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { NavMenu } from "@/components/NavMenu";
 import { getDictionary } from "@/lib/dictionary";
+import { CAL_LINK, CAL_NAMESPACE } from "@/lib/config";
 
 export async function Navbar() {
   const locale = await lang();
@@ -26,9 +27,15 @@ export async function Navbar() {
           <NavMenu items={nav.items} menuOpenLabel={nav.menuOpenLabel} menuCloseLabel={nav.menuCloseLabel} />
           <div className="flex items-center gap-4">
             <LanguageSwitcher />
-            <Link href="#cta" className="text-sm font-medium text-azeno-blue hover:underline">
+            <button
+              type="button"
+              data-cal-link={CAL_LINK}
+              data-cal-namespace={CAL_NAMESPACE}
+              data-cal-config={JSON.stringify({ layout: "month_view", lang: locale })}
+              className="text-sm font-medium text-azeno-blue hover:underline"
+            >
               {nav.ctaButton}
-            </Link>
+            </button>
           </div>
         </div>
       </div>

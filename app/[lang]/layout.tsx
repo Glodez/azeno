@@ -6,6 +6,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Chat } from "@/components/Chat";
 import { ChatWidgetProvider } from "@/components/chat-context";
+import { CalEmbedInit } from "@/components/CalEmbedInit";
 import { hasLocale, locales } from "@/lib/i18n";
 import { getDictionary } from "@/lib/dictionary";
 import "../globals.css";
@@ -32,6 +33,7 @@ export default async function RootLayout(props: LayoutProps<"/[lang]">) {
   return (
     <html lang={locale} className={`${fontSans.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col font-sans">
+        <CalEmbedInit />
         <ChatWidgetProvider>
           <Navbar />
           <main className="flex flex-1 flex-col">{props.children}</main>

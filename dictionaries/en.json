@@ -90,7 +90,8 @@
     "closeLabel": "Close chat",
     "privacyText": "This conversation is stored to improve the service.",
     "privacyLinkLabel": "Privacy policy",
-    "errorMessage": "I can't respond right now, please try again shortly or book a consultation."
+    "errorMessage": "I can't respond right now, please try again shortly or book a consultation.",
+    "bookButton": "Book a free consultation"
   },
   "footer": {
     "logoAlt": "AZENO — Your step into the future.",

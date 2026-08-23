@@ -3,12 +3,16 @@ import type { ComponentPropsWithoutRef } from "react";
 
 type ButtonVariant = "primary" | "secondary";
 
+type DataAttributes = { [key: `data-${string}`]: string };
+
 type ButtonAsLink = { href: string; variant?: ButtonVariant } & Omit<
   ComponentPropsWithoutRef<"a">,
   "href"
->;
+> &
+  DataAttributes;
 
-type ButtonAsButton = { href?: undefined; variant?: ButtonVariant } & ComponentPropsWithoutRef<"button">;
+type ButtonAsButton = { href?: undefined; variant?: ButtonVariant } & ComponentPropsWithoutRef<"button"> &
+  DataAttributes;
 
 type ButtonProps = ButtonAsLink | ButtonAsButton;
 

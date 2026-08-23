@@ -90,7 +90,8 @@
     "closeLabel": "Zapri klepet",
     "privacyText": "Pogovor se shranjuje zaradi izboljšave storitve.",
     "privacyLinkLabel": "Politika zasebnosti",
-    "errorMessage": "Trenutno ne morem odgovoriti, poskusite čez trenutek ali rezervirajte termin."
+    "errorMessage": "Trenutno ne morem odgovoriti, poskusite čez trenutek ali rezervirajte termin.",
+    "bookButton": "Rezervirajte brezplačen posvet"
   },
   "footer": {
     "logoAlt": "AZENO — Vaš korak v prihodnost.",

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n";
 import { useChatWidget } from "@/components/chat-context";
+import { CAL_LINK, CAL_NAMESPACE } from "@/lib/config";
 
 type ChatDict = {
   windowTitle: string;
@@ -17,6 +18,7 @@ type ChatDict = {
   privacyText: string;
   privacyLinkLabel: string;
   errorMessage: string;
+  bookButton: string;
 };
 
 type Message = { role: "user" | "assistant"; content: string };
@@ -176,6 +178,18 @@ export function Chat({
               </div>
             ))}
             <div ref={messagesEndRef} />
+          </div>
+
+          <div className="border-t border-azeno-line p-3">
+            <button
+              type="button"
+              data-cal-link={CAL_LINK}
+              data-cal-namespace={CAL_NAMESPACE}
+              data-cal-config={JSON.stringify({ layout: "month_view", lang: locale })}
+              className="flex min-h-11 w-full items-center justify-center rounded-md bg-azeno-blue px-4 text-sm font-semibold text-azeno-white transition-colors hover:bg-azeno-navy"
+            >
+              {dict.bookButton}
+            </button>
           </div>
 
           <p className="border-t border-azeno-line px-4 py-2 text-xs text-azeno-muted">
