@@ -86,12 +86,11 @@ export function ChatWidgetProvider({
       isSendingRef.current = true;
       setIsSending(true);
 
-      let nextMessages: Message[] = [];
-      setMessages((current) => {
-        const seeded = current.length === 0 ? [{ role: "assistant" as const, content: dict.firstMessage }] : current;
-        nextMessages = [...seeded, { role: "user", content: trimmed }];
-        return nextMessages;
-      });
+      const current = messagesRef.current;
+      const seeded = current.length === 0 ? [{ role: "assistant" as const, content: dict.firstMessage }] : current;
+      const nextMessages: Message[] = [...seeded, { role: "user", content: trimmed }];
+      messagesRef.current = nextMessages;
+      setMessages(nextMessages);
 
       try {
         const response = await fetch("/api/chat", {
