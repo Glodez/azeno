@@ -33,7 +33,11 @@ export function ChatEntryField({
 
   return (
     <div className={className}>
-      <div className="flex items-center gap-2 rounded-lg border border-azeno-line bg-azeno-white py-1.5 pr-1.5 pl-4">
+      <div className="flex items-center gap-3 rounded-lg border border-azeno-line bg-azeno-white py-1.5 pr-1.5 pl-4 transition-all duration-200 focus-within:border-azeno-blue focus-within:ring-2 focus-within:ring-azeno-blue/15">
+        <span className="relative flex h-2.5 w-2.5 shrink-0" aria-hidden="true">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-azeno-cyan opacity-75 motion-reduce:hidden" />
+          <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-azeno-cyan" />
+        </span>
         <input
           type="text"
           value={value}
@@ -47,9 +51,15 @@ export function ChatEntryField({
           type="button"
           onClick={() => submit(value)}
           aria-label={sendAriaLabel}
-          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md text-azeno-blue transition-colors hover:bg-azeno-surface"
+          className="group flex h-11 w-11 shrink-0 items-center justify-center rounded-md text-azeno-blue transition-all duration-200 ease-out hover:bg-azeno-blue hover:text-azeno-white motion-safe:hover:scale-105 motion-safe:active:scale-95"
         >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-5 w-5">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            className="h-5 w-5 transition-transform duration-200 motion-safe:group-hover:translate-x-0.5"
+          >
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 6l6 6-6 6" />
           </svg>
         </button>
@@ -60,7 +70,7 @@ export function ChatEntryField({
             key={suggestion}
             type="button"
             onClick={() => submit(suggestion)}
-            className="min-h-11 rounded-full border border-azeno-line px-4 text-left text-sm text-azeno-ink transition-colors hover:border-azeno-blue hover:text-azeno-blue"
+            className="min-h-11 rounded-full border border-azeno-line px-4 text-left text-sm text-azeno-ink transition-all duration-200 ease-out hover:border-azeno-blue hover:text-azeno-blue hover:shadow-md hover:shadow-azeno-blue/15 motion-safe:hover:-translate-y-0.5 motion-safe:active:translate-y-0 motion-safe:active:scale-[0.97]"
           >
             {suggestion}
           </button>
