@@ -105,7 +105,7 @@
     "title": "Privacy Policy",
     "controller": {
       "heading": "Controller",
-      "body": "AZENO, Nejc Glodež. The company is in the process of registration; details will be added. Contact: azenoai.si@gmail.com."
+      "body": "AZENO, Nejc Glodež. The company is in the process of registration; details will be added. Contact: info@azeno.si."
     },
     "whatWeCollect": {
       "heading": "What we collect",
@@ -143,7 +143,7 @@
     },
     "rights": {
       "heading": "Your rights",
-      "body": "Access, correction, erasure, restriction of processing, objection, and data portability. Send your request to azenoai.si@gmail.com. You can file a complaint with the Information Commissioner of the Republic of Slovenia."
+      "body": "Access, correction, erasure, restriction of processing, objection, and data portability. Send your request to info@azeno.si. You can file a complaint with the Information Commissioner of the Republic of Slovenia."
     },
     "cookies": {
       "heading": "Cookies",
@@ -154,7 +154,7 @@
     "logoAlt": "AZENO — Your step into the future.",
     "copyright": "© {year} AZENO",
     "contactLabel": "Contact us:",
-    "contactEmail": "azenoai.si@gmail.com",
+    "contactEmail": "info@azeno.si",
     "privacyLink": "Privacy policy"
   }
 }

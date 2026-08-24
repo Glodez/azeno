@@ -70,7 +70,7 @@ export async function POST(request: NextRequest) {
 
     const { error } = await resend.emails.send({
       from: "onboarding@resend.dev",
-      to: "azenoai.si@gmail.com",
+      to: "info@azeno.si",
       subject: `AZENO chat — ${timestamp} — ${messages.length} ${pluralizeSporocila(messages.length)}`,
       text,
     });

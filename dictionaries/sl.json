@@ -105,7 +105,7 @@
     "title": "Politika zasebnosti",
     "controller": {
       "heading": "Upravljavec",
-      "body": "AZENO, Nejc Glodež. Podjetje je v postopku registracije; podatki bodo dopolnjeni. Kontakt: azenoai.si@gmail.com."
+      "body": "AZENO, Nejc Glodež. Podjetje je v postopku registracije; podatki bodo dopolnjeni. Kontakt: info@azeno.si."
     },
     "whatWeCollect": {
       "heading": "Kaj zbiramo",
@@ -143,7 +143,7 @@
     },
     "rights": {
       "heading": "Vaše pravice",
-      "body": "Dostop, popravek, izbris, omejitev obdelave, ugovor in prenosljivost. Zahtevo pošljete na azenoai.si@gmail.com. Pritožbo lahko vložite pri Informacijskem pooblaščencu RS."
+      "body": "Dostop, popravek, izbris, omejitev obdelave, ugovor in prenosljivost. Zahtevo pošljete na info@azeno.si. Pritožbo lahko vložite pri Informacijskem pooblaščencu RS."
     },
     "cookies": {
       "heading": "Piškotki",
@@ -154,7 +154,7 @@
     "logoAlt": "AZENO — Vaš korak v prihodnost.",
     "copyright": "© {year} AZENO",
     "contactLabel": "Pišite nam:",
-    "contactEmail": "azenoai.si@gmail.com",
+    "contactEmail": "info@azeno.si",
     "privacyLink": "Politika zasebnosti"
   }
 }

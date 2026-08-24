@@ -125,7 +125,7 @@ One-pager v tem vrstnem redu:
 
 ## Kontakt
 
-- Kontaktni e-naslov: **azenoai.si@gmail.com**. Prikazan v nogi kot klikljiva
+- Kontaktni e-naslov: **info@azeno.si**. Prikazan v nogi kot klikljiva
   `mailto:` povezava.
 - To je edini kontaktni podatek na strani, dokler podjetje ni registrirano
   (glej "Odprto" — pravni podatki v nogi).
@@ -195,7 +195,7 @@ Cilj je zaupanje pri lastnikih podjetij, ne "AI startup" videz.
   ("Trenutno ne morem odgovoriti, poskusite čez trenutek ali rezervirajte termin"),
   nikoli stack trace.
 - Ob zaprtju strani (obiskovalec je poslal vsaj 2 sporočili) se prepis pogovora
-  prek `/api/chat/summary` in Resend pošlje na azenoai.si@gmail.com — največ
+  prek `/api/chat/summary` in Resend pošlje na info@azeno.si — največ
   enkrat na sejo. Ta route ima svoj rate limiting po IP. Napaka pri pošiljanju
   se tiho zabeleži na strežniku in nikoli ne vpliva na uporabnika.
 
