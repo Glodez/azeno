@@ -4,31 +4,25 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n";
 import { useChatWidget } from "@/components/chat-context";
-import { CAL_URL, getCalTriggerProps, STREAM_ERROR_MARKER } from "@/lib/config";
+import { ChatTranscript } from "@/components/ChatTranscript";
+import { CAL_URL, getCalTriggerProps } from "@/lib/config";
 
 type ChatDict = {
   windowTitle: string;
   bubbleGreeting: string;
   bubbleClose: string;
-  firstMessage: string;
   placeholder: string;
   send: string;
   openLabel: string;
   closeLabel: string;
   privacyText: string;
   privacyLinkLabel: string;
-  errorMessage: string;
-  interruptedMessage: string;
   bookButton: string;
 };
-
-type Message = { role: "user" | "assistant"; content: string };
 
 const INVITE_DISMISSED_KEY = "azeno-chat-invite-dismissed";
 const INVITE_DELAY_MS = 20_000;
 const MAX_MESSAGE_LENGTH = 2000;
-const SUMMARY_SENT_COUNT_KEY = "azeno-chat-summary-sent-count";
-const MIN_USER_MESSAGES_FOR_SUMMARY = 2;
 
 export function Chat({
   locale,
@@ -39,47 +33,18 @@ export function Chat({
   dict: ChatDict;
   privacyHref: string;
 }) {
-  const { isOpen, open, close, registerOnOpen, registerOnSubmit } = useChatWidget();
+  const { isOpen, open, close, messages, isSending, sendMessage } = useChatWidget();
   const [showInvite, setShowInvite] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
-  const [isSending, setIsSending] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const messagesRef = useRef<Message[]>(messages);
   const panelRef = useRef<HTMLDivElement>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
-
-  useEffect(() => {
-    messagesRef.current = messages;
-  }, [messages]);
 
   useEffect(() => {
     if (sessionStorage.getItem(INVITE_DISMISSED_KEY)) return;
     const timer = setTimeout(() => setShowInvite(true), INVITE_DELAY_MS);
     return () => clearTimeout(timer);
   }, []);
-
-  useEffect(() => {
-    function handleVisibilityChange() {
-      if (document.visibilityState !== "hidden") return;
-
-      const currentMessages = messagesRef.current;
-      const userMessageCount = currentMessages.filter((message) => message.role === "user").length;
-      if (userMessageCount < MIN_USER_MESSAGES_FOR_SUMMARY) return;
-
-      const lastSentCount = Number(sessionStorage.getItem(SUMMARY_SENT_COUNT_KEY) ?? "0");
-      if (currentMessages.length <= lastSentCount) return;
-
-      sessionStorage.setItem(SUMMARY_SENT_COUNT_KEY, String(currentMessages.length));
-
-      const payload = JSON.stringify({ lang: locale, messages: currentMessages });
-      const blob = new Blob([payload], { type: "application/json" });
-      navigator.sendBeacon("/api/chat/summary", blob);
-    }
-
-    document.addEventListener("visibilitychange", handleVisibilityChange);
-    return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
-  }, [locale]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -108,81 +73,16 @@ export function Chat({
     sessionStorage.setItem(INVITE_DISMISSED_KEY, "1");
   }
 
-  function seedGreetingIfEmpty(current: Message[]): Message[] {
-    return current.length === 0 ? [{ role: "assistant", content: dict.firstMessage }] : current;
+  function openChat() {
+    dismissInvite();
+    open();
   }
 
-  useEffect(() => {
-    registerOnOpen(() => {
-      dismissInvite();
-      setMessages(seedGreetingIfEmpty);
-    });
-    registerOnSubmit((content) => {
-      dismissInvite();
-      sendMessage(content);
-    });
-  });
-
-  function withInterruptionNotice(partialContent: string): string {
-    const trimmed = partialContent.trim();
-    return trimmed.length > 0 ? `${trimmed}\n\n${dict.interruptedMessage}` : dict.interruptedMessage;
-  }
-
-  async function sendMessage(overrideContent?: string) {
-    const content = (overrideContent ?? input).trim();
-    if (!content || isSending) return;
-
-    const nextMessages: Message[] = [...seedGreetingIfEmpty(messages), { role: "user", content }];
-    setMessages(nextMessages);
+  function submit(content: string) {
+    const trimmed = content.trim();
+    if (!trimmed || isSending) return;
+    sendMessage(trimmed);
     setInput("");
-    setIsSending(true);
-
-    try {
-      const response = await fetch("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ lang: locale, messages: nextMessages }),
-      });
-
-      if (!response.ok || !response.body) {
-        const errorText = await response.json().catch(() => null);
-        setMessages((current) => [
-          ...current,
-          { role: "assistant", content: errorText?.error ?? dict.errorMessage },
-        ]);
-        return;
-      }
-
-      const reader = response.body.getReader();
-      const decoder = new TextDecoder();
-      setMessages((current) => [...current, { role: "assistant", content: "" }]);
-
-      let assistantReply = "";
-      for (;;) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        assistantReply += decoder.decode(value, { stream: true });
-
-        const markerIndex = assistantReply.indexOf(STREAM_ERROR_MARKER);
-        if (markerIndex !== -1) {
-          const partial = assistantReply.slice(0, markerIndex);
-          setMessages((current) => [
-            ...current.slice(0, -1),
-            { role: "assistant", content: withInterruptionNotice(partial) },
-          ]);
-          break;
-        }
-
-        setMessages((current) => [
-          ...current.slice(0, -1),
-          { role: "assistant", content: assistantReply },
-        ]);
-      }
-    } catch {
-      setMessages((current) => [...current, { role: "assistant", content: dict.errorMessage }]);
-    } finally {
-      setIsSending(false);
-    }
   }
 
   return (
@@ -214,18 +114,7 @@ export function Chat({
             aria-relevant="additions text"
             className="flex-1 space-y-3 overflow-y-auto px-4 py-3"
           >
-            {messages.map((message, index) => (
-              <div
-                key={index}
-                className={`max-w-[85%] rounded-lg px-3 py-2 text-sm ${
-                  message.role === "user"
-                    ? "ml-auto bg-azeno-blue text-azeno-white"
-                    : "bg-azeno-surface text-azeno-ink"
-                }`}
-              >
-                {message.content}
-              </div>
-            ))}
+            <ChatTranscript messages={messages} />
             <div ref={messagesEndRef} />
           </div>
 
@@ -244,7 +133,7 @@ export function Chat({
           <form
             onSubmit={(event) => {
               event.preventDefault();
-              sendMessage();
+              submit(input);
             }}
             className="flex items-center gap-2 border-t border-azeno-line p-3"
           >
@@ -279,7 +168,7 @@ export function Chat({
         <div className="flex max-w-xs items-start gap-1 rounded-lg border border-azeno-line bg-azeno-white py-1 pr-1 pl-4">
           <button
             type="button"
-            onClick={open}
+            onClick={openChat}
             className="min-h-11 py-3 text-left text-sm text-azeno-ink hover:underline"
           >
             {dict.bubbleGreeting}
@@ -297,7 +186,7 @@ export function Chat({
 
       <button
         type="button"
-        onClick={() => (isOpen ? close() : open())}
+        onClick={() => (isOpen ? close() : openChat())}
         aria-label={isOpen ? dict.closeLabel : dict.openLabel}
         className="flex h-14 w-14 items-center justify-center rounded-full bg-azeno-blue text-azeno-white transition-all duration-200 ease-out hover:bg-azeno-navy hover:shadow-lg hover:shadow-azeno-blue/30 motion-safe:hover:-translate-y-0.5 motion-safe:hover:scale-105 motion-safe:active:scale-95"
       >

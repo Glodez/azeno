@@ -69,7 +69,7 @@ export default async function RootLayout(props: LayoutProps<"/[lang]">) {
     >
       <body className="flex min-h-full flex-col font-sans">
         <CalEmbedInit />
-        <ChatWidgetProvider>
+        <ChatWidgetProvider locale={locale} dict={chat}>
           <Navbar />
           <main className="flex flex-1 flex-col">{props.children}</main>
           <Footer />

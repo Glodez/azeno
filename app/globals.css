@@ -27,3 +27,24 @@ html {
     scroll-behavior: auto;
   }
 }
+
+@keyframes azeno-pulse-border {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--azeno-blue) 30%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 0 6px color-mix(in oklab, var(--azeno-blue) 0%, transparent);
+  }
+}
+
+.azeno-glow-border {
+  animation: azeno-pulse-border 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .azeno-glow-border {
+    animation: none;
+    box-shadow: 0 0 0 2px color-mix(in oklab, var(--azeno-blue) 20%, transparent);
+  }
+}

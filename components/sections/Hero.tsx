@@ -8,7 +8,7 @@ import type { Locale } from "@/lib/i18n";
 
 export async function Hero() {
   const locale = (await lang()) as Locale;
-  const { hero, demo } = await getDictionary();
+  const { hero, demo, chat } = await getDictionary();
 
   return (
     <Section background="white" wide>
@@ -24,6 +24,9 @@ export async function Hero() {
           placeholder={demo.placeholder}
           suggestions={demo.suggestions}
           sendAriaLabel={demo.sendAriaLabel}
+          privacyText={chat.privacyText}
+          privacyLinkLabel={chat.privacyLinkLabel}
+          privacyHref={`/${locale}/zasebnost`}
           className="w-full"
         />
       </div>
