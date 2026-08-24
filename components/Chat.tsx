@@ -36,7 +36,7 @@ export function Chat({
   const { isOpen, open, close, messages, isSending, sendMessage } = useChatWidget();
   const [showInvite, setShowInvite] = useState(false);
   const [input, setInput] = useState("");
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const transcriptRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
 
@@ -47,7 +47,9 @@ export function Chat({
   }, []);
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    const el = transcriptRef.current;
+    if (!el) return;
+    el.scrollTop = el.scrollHeight;
   }, [messages]);
 
   useEffect(() => {
@@ -109,13 +111,13 @@ export function Chat({
           </div>
 
           <div
+            ref={transcriptRef}
             role="log"
             aria-live="polite"
             aria-relevant="additions text"
             className="flex-1 space-y-3 overflow-y-auto px-4 py-3"
           >
             <ChatTranscript messages={messages} />
-            <div ref={messagesEndRef} />
           </div>
 
           <div className="border-t border-azeno-line p-3">

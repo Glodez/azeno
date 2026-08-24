@@ -24,11 +24,13 @@ export function ChatEntryField({
 }) {
   const { messages, isSending, sendMessage } = useChatWidget();
   const [value, setValue] = useState("");
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const transcriptRef = useRef<HTMLDivElement>(null);
   const hasConversation = messages.length > 0;
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    const el = transcriptRef.current;
+    if (!el) return;
+    el.scrollTop = el.scrollHeight;
   }, [messages]);
 
   function submit(content: string) {
@@ -49,13 +51,13 @@ export function ChatEntryField({
     <div className={className}>
       {hasConversation && (
         <div
+          ref={transcriptRef}
           role="log"
           aria-live="polite"
           aria-relevant="additions text"
           className="mb-3 max-h-96 space-y-3 overflow-y-auto rounded-lg border border-azeno-line bg-azeno-white p-4"
         >
           <ChatTranscript messages={messages} />
-          <div ref={messagesEndRef} />
         </div>
       )}
 
