@@ -17,12 +17,13 @@ type ButtonAsButton = { href?: undefined; variant?: ButtonVariant } & ComponentP
 type ButtonProps = ButtonAsLink | ButtonAsButton;
 
 const baseStyles =
-  "inline-flex items-center justify-center rounded-md px-6 py-3 text-sm font-semibold transition-colors";
+  "inline-flex items-center justify-center rounded-md px-6 py-3 text-sm font-semibold transition-all duration-200 ease-out motion-safe:hover:-translate-y-0.5 motion-safe:active:translate-y-0 motion-safe:active:scale-[0.97]";
 
 const variantStyles: Record<ButtonVariant, string> = {
-  primary: "bg-azeno-blue text-azeno-white hover:bg-azeno-navy",
+  primary:
+    "bg-azeno-blue text-azeno-white hover:bg-azeno-navy hover:shadow-lg hover:shadow-azeno-blue/25",
   secondary:
-    "border border-azeno-blue text-azeno-blue hover:bg-azeno-surface",
+    "border border-azeno-blue text-azeno-blue hover:border-azeno-navy hover:bg-azeno-surface hover:text-azeno-navy",
 };
 
 export function Button({ variant = "primary", className = "", ...props }: ButtonProps) {

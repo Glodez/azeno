@@ -235,7 +235,7 @@ export function Chat({
               target="_blank"
               rel="noopener"
               {...getCalTriggerProps(locale)}
-              className="flex min-h-11 w-full items-center justify-center rounded-md bg-azeno-blue px-4 text-sm font-semibold text-azeno-white transition-colors hover:bg-azeno-navy"
+              className="flex min-h-11 w-full items-center justify-center rounded-md bg-azeno-blue px-4 text-sm font-semibold text-azeno-white transition-all duration-200 ease-out hover:bg-azeno-navy hover:shadow-lg hover:shadow-azeno-blue/25 motion-safe:hover:-translate-y-0.5 motion-safe:active:translate-y-0 motion-safe:active:scale-[0.97]"
             >
               {dict.bookButton}
             </a>
@@ -260,7 +260,7 @@ export function Chat({
             <button
               type="submit"
               disabled={isSending || input.trim().length === 0}
-              className="inline-flex min-h-11 items-center justify-center rounded-md bg-azeno-blue px-4 text-sm font-semibold text-azeno-white transition-colors hover:bg-azeno-navy disabled:opacity-50"
+              className="inline-flex min-h-11 items-center justify-center rounded-md bg-azeno-blue px-4 text-sm font-semibold text-azeno-white transition-all duration-200 ease-out hover:bg-azeno-navy hover:shadow-lg hover:shadow-azeno-blue/25 motion-safe:hover:-translate-y-0.5 motion-safe:active:translate-y-0 motion-safe:active:scale-[0.97] disabled:opacity-50 disabled:hover:translate-y-0 disabled:hover:shadow-none"
             >
               {dict.send}
             </button>
@@ -299,7 +299,7 @@ export function Chat({
         type="button"
         onClick={() => (isOpen ? close() : open())}
         aria-label={isOpen ? dict.closeLabel : dict.openLabel}
-        className="flex h-14 w-14 items-center justify-center rounded-full bg-azeno-blue text-azeno-white transition-colors hover:bg-azeno-navy"
+        className="flex h-14 w-14 items-center justify-center rounded-full bg-azeno-blue text-azeno-white transition-all duration-200 ease-out hover:bg-azeno-navy hover:shadow-lg hover:shadow-azeno-blue/30 motion-safe:hover:-translate-y-0.5 motion-safe:hover:scale-105 motion-safe:active:scale-95"
       >
         {isOpen ? (
           <span className="text-xl">✕</span>
