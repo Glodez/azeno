@@ -25,19 +25,23 @@
     "items": [
       {
         "title": "Avtomatizacija procesov",
-        "description": "Ponavljajoča opravila se izvedejo sama, vi pa imate čas za pomembnejše delo."
+        "description": "Ponavljajoča opravila se izvedejo sama, vi pa imate čas za pomembnejše delo.",
+        "details": "Poglejmo, kje pri vas največ časa gre za ročno prepisovanje podatkov med sistemi, usklajevanje po e-pošti ali izpolnjevanje istih obrazcev vsak teden. Taka opravila se dajo povezati tako, da tečejo sama v ozadju — od vnosa naročila v enem sistemu do samodejnega ažuriranja v drugem, brez da bi kdorkoli podatke prepisoval ročno. Poleg prihranjenega časa je pogosto tudi manj napak, ki nastanejo pri ponavljajočem ročnem delu. Primerno je za naročila, zaloge, obračune, usklajevanje med Excelom in poslovnimi sistemi ali karkoli drugega, kar danes delate po istem vzorcu vsak teden."
       },
       {
         "title": "Obdelava dokumentov z AI",
-        "description": "Računi, pogodbe in obrazci se preberejo in uredijo sami, brez ročnega prepisovanja."
+        "description": "Računi, pogodbe in obrazci se preberejo in uredijo sami, brez ročnega prepisovanja.",
+        "details": "Računi, dobavnice, pogodbe in obrazci pogosto pridejo v različnih oblikah — PDF, slika, e-pošta — nekdo pa jih mora prebrati in podatke ročno prenesti naprej. AI lahko te dokumente prebere namesto vas: prepozna zneske, datume, postavke in stranke ter jih uredi v obliko, ki jo vaš sistem razume. Manj je ročnega vnašanja in manj prostora za tipkarske napake pri prepisovanju. Primerno je za prejete račune, naročilnice, pogodbe ali kakršnekoli dokumente, ki jih danes nekdo ročno pregleduje in prepisuje."
       },
       {
         "title": "AI chatboti za podjetja",
-        "description": "Obiskovalci dobijo odgovor takoj, tudi izven delovnega časa, vi pa imate manj rutinskih vprašanj."
+        "description": "Obiskovalci dobijo odgovor takoj, tudi izven delovnega časa, vi pa imate manj rutinskih vprašanj.",
+        "details": "Obiskovalec spletne strani pogosto odide, če odgovora na preprosto vprašanje ne dobi takoj — tudi izven delovnega časa. Chatbot, prilagojen vašim storitvam, odgovarja na pogosta vprašanja, obiskovalcu pomaga najti pravo informacijo in ga po potrebi usmeri do rezervacije ali kontakta. Vi imate manj rutinskih vprašanj po e-pošti in telefonu, obiskovalec pa hitrejši odgovor. Chatbot pozna samo to, kar mu poveste — ne izmišljuje si cen ali obljub, ki jih ne morete držati."
       },
       {
         "title": "Grajenje spletnih strani za podjetja",
-        "description": "Jasna spletna stran, ki obiskovalca pripelje do povpraševanja ali rezervacije."
+        "description": "Jasna spletna stran, ki obiskovalca pripelje do povpraševanja ali rezervacije.",
+        "details": "Spletna stran je pogosto prva stvar, ki jo stranka vidi, zato mora jasno povedati, kaj počnete in kam naj obiskovalec klikne naprej. Zgradim stran, ki je hitra, pregledna na telefonu in obiskovalca vodi do enega jasnega cilja — povpraševanja, rezervacije ali klica. Brez odvečnih animacij in besedila, ki ne pove ničesar konkretnega. Primerno za podjetja, ki spletne strani še nimajo, ali imajo staro stran, ki ne pove jasno, kaj ponujajo."
       }
     ]
   },

@@ -25,19 +25,23 @@
     "items": [
       {
         "title": "Process automation",
-        "description": "Repetitive tasks get done automatically, so you have time for work that matters."
+        "description": "Repetitive tasks get done automatically, so you have time for work that matters.",
+        "details": "Take a look at where the most time goes — retyping data between systems, chasing details over email, or filling out the same form every week. Tasks like these can often be connected so they run on their own in the background: from an order landing in one system to it updating automatically in another, without anyone copying data by hand. Besides saving time, this usually also means fewer mistakes that creep in during repetitive manual work. This fits orders, inventory, invoicing, syncing between spreadsheets and business systems, or anything else you do the same way every week."
       },
       {
         "title": "AI document processing",
-        "description": "Invoices, contracts and forms are read and sorted automatically, without manual data entry."
+        "description": "Invoices, contracts and forms are read and sorted automatically, without manual data entry.",
+        "details": "Invoices, delivery notes, contracts and forms often arrive in different formats — PDF, scanned image, email — and someone has to read them and enter the details by hand. AI can read these documents for you: recognising amounts, dates, line items and parties, and organising them into a format your system understands. That means less manual entry and less room for typos when copying data across. This fits incoming invoices, purchase orders, contracts, or any documents someone currently reviews and retypes by hand."
       },
       {
         "title": "AI chatbots for businesses",
-        "description": "Visitors get an answer right away, even outside office hours, and you have fewer routine questions."
+        "description": "Visitors get an answer right away, even outside office hours, and you have fewer routine questions.",
+        "details": "A website visitor often leaves if they can't get an answer to a simple question right away — even outside office hours. A chatbot tailored to your services answers common questions, helps visitors find the right information, and points them toward booking or contact when it makes sense. You get fewer routine questions by email and phone, and visitors get a faster answer. The bot only knows what you tell it — it won't invent prices or promises you can't keep."
       },
       {
         "title": "Website design for businesses",
-        "description": "A clear website that leads visitors to get in touch or book a call."
+        "description": "A clear website that leads visitors to get in touch or book a call.",
+        "details": "Your website is often the first thing a prospective client sees, so it needs to clearly say what you do and where the visitor should click next. I build sites that are fast, easy to read on a phone, and lead the visitor toward one clear goal — an enquiry, a booking, or a call. No unnecessary animation, no text that doesn't say anything concrete. This fits businesses that don't have a website yet, or have an old one that doesn't clearly explain what they offer."
       }
     ]
   },

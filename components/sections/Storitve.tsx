@@ -1,5 +1,6 @@
 import { Section } from "@/components/ui/Section";
 import { Heading } from "@/components/ui/Heading";
+import { ServiceCard } from "@/components/ServiceCard";
 import { getDictionary } from "@/lib/dictionary";
 
 export async function Storitve() {
@@ -10,15 +11,13 @@ export async function Storitve() {
       <Heading as={2}>{services.title}</Heading>
       <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
         {services.items.map((item, index) => (
-          <div
+          <ServiceCard
             key={item.title}
-            className={`rounded-lg border border-azeno-line bg-azeno-white p-6 ${
-              index === 0 ? "sm:col-span-3" : ""
-            }`}
-          >
-            <Heading as={3}>{item.title}</Heading>
-            <p className="mt-2 max-w-prose text-azeno-muted">{item.description}</p>
-          </div>
+            title={item.title}
+            description={item.description}
+            details={item.details}
+            className={index === 0 ? "sm:col-span-3" : ""}
+          />
         ))}
       </div>
     </Section>
