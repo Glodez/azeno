@@ -9,15 +9,15 @@ export async function OMeni() {
   return (
     <Section id="o-meni" background="surface" wide>
       <Heading as={2}>{about.title}</Heading>
-      <div className="mt-8 flex flex-col gap-10 md:flex-row md:items-center md:gap-16">
+      <div className="mt-8 grid grid-cols-1 gap-10 md:grid-cols-12 md:items-center md:gap-12">
         <Image
           src="/nejc.jpg"
           alt={about.imageAlt}
           width={1179}
           height={1670}
-          className="w-full rounded-lg md:w-[26rem] md:shrink-0"
+          className="w-full rounded-lg md:col-span-5"
         />
-        <div className="max-w-prose space-y-4 text-azeno-muted">
+        <div className="space-y-4 text-azeno-muted md:col-span-7 md:border-l md:border-azeno-line md:pl-12">
           <p>{about.paragraph1}</p>
           <p>{about.paragraph2}</p>
         </div>

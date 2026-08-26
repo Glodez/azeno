@@ -1,17 +1,19 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useId, useState, type ReactNode } from "react";
 import { Heading } from "@/components/ui/Heading";
 
 export function ServiceCard({
   title,
   description,
   details,
+  icon,
   className = "",
 }: {
   title: string;
   description: string;
   details: string;
+  icon: ReactNode;
   className?: string;
 }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,9 +28,14 @@ export function ServiceCard({
         aria-controls={contentId}
         className="flex w-full items-start justify-between gap-4 rounded-lg p-6 text-left transition-colors duration-200 hover:bg-azeno-surface"
       >
-        <div>
-          <Heading as={3}>{title}</Heading>
-          <p className="mt-2 max-w-prose text-azeno-muted">{description}</p>
+        <div className="flex gap-4">
+          <span className="mt-1 shrink-0 text-azeno-blue" aria-hidden="true">
+            {icon}
+          </span>
+          <div>
+            <Heading as={3}>{title}</Heading>
+            <p className="mt-2 max-w-prose text-azeno-muted">{description}</p>
+          </div>
         </div>
         <svg
           viewBox="0 0 24 24"

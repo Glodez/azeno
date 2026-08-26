@@ -12,7 +12,7 @@ export async function Postopek() {
         {processDict.steps.map((step, index) => (
           <div key={step.title} className="flex gap-4">
             <div className="flex flex-col items-center">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 border-azeno-cyan text-sm font-bold text-azeno-navy">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-azeno-navy text-sm font-bold text-azeno-white">
                 {index + 1}
               </span>
               {index < processDict.steps.length - 1 && (
